@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BIKE SHOP — Certified Pre-Owned Bikes</title>
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://jpvgxbyawyzzmsmyognp.supabase.co" crossorigin>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; }
+    #brandLogoBtn { touch-action: manipulation; -webkit-tap-highlight-color: transparent; -webkit-touch-callout: none; }
+    .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+    .custom-scrollbar::-webkit-scrollbar-track { background: #f1f5f9; }
+    .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen flex flex-col">
+
+  <!-- HEADER -->
+  <header class="sticky top-0 z-30 bg-slate-900 text-white shadow-lg border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-wrap items-center justify-between py-3 gap-3">
+        <div class="flex items-center gap-3 cursor-pointer select-none" id="brandLogoBtn">
+          <img src="data:image/png;base64,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" alt="बाईक शॉप कराड logo" width="160" height="52" decoding="async" class="h-12 w-32 sm:w-40 object-contain shrink-0" />
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="font-extrabold text-lg tracking-tight">BIKE SHOP</span>
+              <span class="text-[11px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/30">Certified Pre-Owned</span>
+            </div>
+            <p class="text-xs text-slate-400 hidden sm:block">Trusted Second-Hand Bikes Showroom • 150-Point Inspected</p>
+          </div>
+        </div>
+
+        <nav class="flex items-center gap-1.5 bg-slate-800/90 p-1 rounded-xl border border-slate-700" aria-label="Main Navigation">
+          <button type="button" id="navShowroomBtn" class="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-amber-500 text-slate-950 shadow">bikes (<span id="navCountAvailable">0</span>)</button>
+          <button type="button" id="navWishlistBtn" class="px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700/60 flex items-center gap-1.5">♥ Wishlist (<span id="navCountWishlist">0</span>)</button>
+          <button type="button" id="navAdminPanelBtn" class="hidden px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-emerald-500 text-slate-950 shadow">⚡ Admin Console</button>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <label for="currencySelect" class="sr-only">Currency</label>
+          <select id="currencySelect" class="bg-slate-800 text-slate-200 text-xs rounded-lg px-2.5 py-1.5 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-amber-400">
+            <option value="INR">₹ INR (Lakhs)</option>
+            <option value="USD">$ USD</option>
+          </select>
+          <button type="button" id="openCustomerAuthBtn" class="inline-flex items-center gap-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs sm:text-sm px-3.5 py-1.5 rounded-lg shadow transition">👤 Login / Register</button>
+          <div id="loggedInCustomerBox" class="hidden items-center gap-1.5 bg-slate-800 border border-slate-700 rounded-lg px-2.5 py-1">
+            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span id="customerHeaderName" class="text-xs font-semibold text-white max-w-[120px] truncate">Customer</span>
+            <button type="button" id="customerLogoutBtn" class="text-[11px] text-amber-400 hover:text-amber-300 font-semibold ml-1 underline">Logout</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="adminActiveBanner" class="hidden bg-gradient-to-r from-emerald-950 via-slate-900 to-emerald-950 border-t border-emerald-500/30 px-4 py-2">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 text-xs">
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded bg-emerald-500 text-slate-950 font-extrabold uppercase tracking-wider text-[10px]">Owner Mode</span>
+          <span class="text-emerald-200 font-medium">Manage bikes, photos, asking prices &amp; leads</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" id="bannerQuickAddCarBtn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold px-2.5 py-1 rounded-md transition">+ Add New Bike</button>
+          <button type="button" id="bannerOpenInsightsBtn" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold px-2.5 py-1 rounded-md border border-slate-600 transition">📊 Insights</button>
+          <button type="button" id="lockAdminPanelBtn" class="bg-rose-600/90 hover:bg-rose-500 text-white font-semibold px-2.5 py-1 rounded-md transition">Lock Admin ✕</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+
+    <!-- SHOWROOM -->
+    <section id="viewShowroom" class="space-y-6">
+      <div class="relative rounded-2xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white p-6 sm:p-8 shadow-md overflow-hidden border border-slate-800">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+          <div class="lg:col-span-8 space-y-3">
+            <div class="inline-flex flex-wrap items-center gap-2 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-xs font-semibold">
+              <span>✓ 150-Point Certified</span><span>•</span><span>✓ Transparent Asking Price</span><span>•</span><span>✓ RC Transfer &amp; Loan Assist</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-tight">Welcome to <span class="text-amber-400">BIKE SHOP</span> — Certified Second-Hand Bikes</h1>
+            <p class="text-slate-300 text-sm sm:text-base max-w-2xl">Browse real photos and inspection reports, calculate monthly EMIs, save favourites to your wishlist, or book a showroom test ride.</p>
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+              <button type="button" id="heroBrowseAllBtn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl shadow transition">Explore Available Bikes</button>
+              <button type="button" id="heroOpenWishlistBtn" class="bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-700 transition">♥ My Wishlist (<span id="heroWishlistCount">0</span>)</button>
+              <button type="button" id="heroCustomerLoginPromptBtn" class="bg-slate-800/70 hover:bg-slate-700 text-amber-300 font-semibold text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-amber-400/30 transition">👤 Customer Sign In / Register</button>
+            </div>
+          </div>
+          <div class="lg:col-span-4 grid grid-cols-2 gap-3">
+            <div class="bg-slate-800/90 border border-slate-700 rounded-xl p-3.5">
+              <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Ready in Showroom</p>
+              <p class="text-2xl font-extrabold text-amber-400 mt-0.5" id="customerHeroAvailableCount">0</p>
+              <p class="text-[11px] text-slate-300 mt-0.5">Verified Bikes</p>
+            </div>
+            <div class="bg-slate-800/90 border border-slate-700 rounded-xl p-3.5">
+              <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Starting Price</p>
+              <p class="text-xl font-extrabold text-emerald-400 mt-0.5" id="customerHeroMinPrice">—</p>
+              <p class="text-[11px] text-slate-300 mt-0.5">Easy EMI Options</p>
+            </div>
+            <div class="bg-slate-800/90 border border-slate-700 rounded-xl p-3.5">
+              <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Quality Check</p>
+              <p class="text-lg font-extrabold mt-0.5">150+ Points</p>
+              <p class="text-[11px] text-slate-300 mt-0.5">Non-Accidental Guarantee</p>
+            </div>
+            <div class="bg-slate-800/90 border border-slate-700 rounded-xl p-3.5">
+              <p class="text-[11px] uppercase tracking-wider text-slate-400 font-semibold">Showroom</p>
+              <p class="text-sm font-extrabold mt-0.5">BIKE SHOP Hub</p>
+              <p class="text-[11px] text-slate-300 mt-0.5">Open 9:30 AM – 8:30 PM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-sm space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-3">
+          <div class="sm:col-span-2">
+            <label for="filterSearch" class="block text-xs font-semibold text-slate-600 mb-1">Search Brand, Model, or Feature</label>
+            <input type="text" id="filterSearch" placeholder="e.g. Classic 350, Splendor, Activa, ABS, MH-09..." class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" />
+          </div>
+          <div>
+            <label for="filterBody" class="block text-xs font-semibold text-slate-600 mb-1">Bike Type</label>
+            <select id="filterBody" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <option value="ALL">All Bike Types</option><option value="Commuter">Commuter</option><option value="Sports">Sports</option><option value="Cruiser">Cruiser</option><option value="Scooter">Scooter</option><option value="Adventure">Adventure / Touring</option><option value="Street">Street / Naked</option>
+            </select>
+          </div>
+          <div>
+            <label for="filterFuel" class="block text-xs font-semibold text-slate-600 mb-1">Fuel Type</label>
+            <select id="filterFuel" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <option value="ALL">All Fuels</option><option value="Petrol">Petrol</option><option value="Electric">Electric (EV)</option><option value="CNG">Petrol + CNG</option>
+            </select>
+          </div>
+          <div>
+            <label for="filterTransmission" class="block text-xs font-semibold text-slate-600 mb-1">Transmission</label>
+            <select id="filterTransmission" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <option value="ALL">All Gearboxes</option><option value="Automatic">Automatic (Scooter / CVT)</option><option value="Manual">Manual (Geared)</option>
+            </select>
+          </div>
+          <div>
+            <label for="filterSort" class="block text-xs font-semibold text-slate-600 mb-1">Sort Bikes By</label>
+            <select id="filterSort" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-amber-500">
+              <option value="newest_added">Newly Arrived First</option><option value="price_asc">Asking Price: Low to High</option><option value="price_desc">Asking Price: High to Low</option><option value="year_desc">Model Year: Newest</option><option value="mileage_asc">Kms Driven: Lowest</option><option value="popular">Most Popular / Wishlisted</option>
+            </select>
+          </div>
+        </div>
+        <div class="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex flex-wrap items-center gap-4 flex-1 min-w-[240px]">
+            <div class="flex items-center gap-3 flex-1 max-w-md">
+              <label for="filterMaxPrice" class="text-xs font-semibold text-slate-600 whitespace-nowrap">Max Asking Price: <span id="filterMaxPriceLabel" class="text-amber-600 font-bold">Any Budget</span></label>
+              <input type="range" id="filterMaxPrice" min="30000" max="1500000" step="10000" value="1500000" class="w-full accent-amber-500 cursor-pointer" />
+            </div>
+            <label class="inline-flex items-center gap-2 text-xs font-medium text-slate-700 cursor-pointer select-none">
+              <input type="checkbox" id="filterHideSold" class="rounded text-amber-500 focus:ring-amber-500" /><span>Hide Sold / Reserved Bikes</span>
+            </label>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="text-xs text-slate-500 font-medium" id="resultsCountText">Loading bikes…</span>
+            <button type="button" id="clearFiltersBtn" class="text-xs font-semibold text-amber-600 hover:text-amber-700 underline">Reset All Filters</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="compareTray" class="hidden bg-slate-900 text-white rounded-2xl p-4 shadow-xl border border-slate-700 flex flex-wrap items-center justify-between gap-4">
+        <div class="flex items-center gap-3 flex-wrap">
+          <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-md bg-amber-500 text-slate-950">Compare (<span id="compareCount">0</span>/3)</span>
+          <div id="comparePillsContainer" class="flex flex-wrap items-center gap-2"></div>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" id="openCompareModalBtn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2 rounded-xl transition">Compare Side-by-Side</button>
+          <button type="button" id="clearCompareBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs px-3 py-2 rounded-xl border border-slate-700 transition">Clear</button>
+        </div>
+      </div>
+
+      <div id="loadErrorBox" class="hidden p-4 rounded-xl bg-rose-50 border border-rose-200 text-sm text-rose-700 font-medium"></div>
+      <div id="vehiclesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <div id="emptyShowroomState" class="hidden bg-white rounded-2xl p-10 text-center border border-slate-200 shadow-sm max-w-lg mx-auto my-6 space-y-3">
+        <div class="text-4xl">🔍</div>
+        <h3 class="text-lg font-bold">No Matching Bikes Found</h3>
+        <p class="text-sm text-slate-500">Try increasing the budget slider or clearing your filters.</p>
+        <button type="button" id="emptyResetBtn" class="bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-xl hover:bg-slate-800 transition">Reset All Filters</button>
+      </div>
+    </section>
+
+    <!-- WISHLIST -->
+    <section id="viewWishlist" class="hidden space-y-6">
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-wrap items-center justify-between gap-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-wider text-rose-600">Personal Shortlist</span>
+          <h2 class="text-2xl font-extrabold" id="wishlistHeaderTitle">My Wishlisted Bikes</h2>
+          <p class="text-sm text-slate-500">Bikes you saved to watch, compare EMI, or schedule a test ride.</p>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <button type="button" id="wishlistSignInPromptBtn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-bold px-4 py-2.5 rounded-xl transition">👤 Sign In to Sync Wishlist</button>
+          <button type="button" id="backToShowroomFromSavedBtn" class="bg-slate-900 text-white text-xs font-semibold px-4 py-2.5 rounded-xl hover:bg-slate-800 transition">← Back to Showroom</button>
+        </div>
+      </div>
+      <div id="savedVehiclesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div id="emptySavedState" class="hidden bg-white rounded-2xl p-10 text-center border border-slate-200 max-w-md mx-auto space-y-3">
+        <div class="text-4xl">❤️</div>
+        <h3 class="text-lg font-bold">Your Wishlist is Empty</h3>
+        <p class="text-sm text-slate-500">Tap the heart (♡) on any bike to save it here.</p>
+        <button type="button" id="emptyWishlistBrowseBtn" class="mt-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-xl transition">Browse Showroom Bikes</button>
+      </div>
+    </section>
+
+    <!-- ADMIN -->
+    <section id="viewAdminPanel" class="hidden space-y-6">
+      <div class="bg-slate-900 text-white rounded-2xl p-6 border border-slate-800 shadow-lg space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div>
+            <div class="inline-flex items-center gap-2 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-[11px] font-bold uppercase tracking-wider">⚡ BIKE SHOP Owner Portal</div>
+            <h2 class="text-2xl font-extrabold mt-1">Admin Panel &amp; Dealership Intelligence</h2>
+            <p class="text-xs sm:text-sm text-slate-400">Add bikes with real photos, manage prices &amp; stock, and follow customer interest.</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button type="button" id="adminBackToShowroomBtn" class="bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold px-3.5 py-2 rounded-xl border border-slate-700 transition">👁️ Preview Showroom</button>
+            <button type="button" id="adminLogoutBtn" class="bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold px-3.5 py-2 rounded-xl shadow transition">🔒 Exit Admin Mode</button>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-800">
+          <button type="button" data-admin-tab="insights" class="admin-subtab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-amber-500 text-slate-950 shadow transition">📊 Insights</button>
+          <button type="button" data-admin-tab="add" class="admin-subtab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition">➕ Add / Edit Bike</button>
+          <button type="button" data-admin-tab="inventory" class="admin-subtab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition">📋 Stock &amp; Prices</button>
+          <button type="button" data-admin-tab="customers" class="admin-subtab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition">👥 Customers &amp; Leads (<span id="adminTabCustomerCount">0</span>)</button>
+          <button type="button" data-admin-tab="security" class="admin-subtab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition">🔐 Security</button>
+        </div>
+      </div>
+
+      <!-- Insights -->
+      <div id="adminSubViewInsights" class="space-y-6">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+            <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Active Showroom Valuation</p>
+            <p class="text-2xl font-extrabold mt-1" id="insightTotalValuation">₹0</p>
+            <p class="text-xs text-slate-500 mt-1"><span id="insightActiveCount" class="font-bold text-emerald-600">0</span> Available/Reserved • Avg <span id="insightAvgAsking" class="font-semibold text-slate-700">₹0</span></p>
+          </div>
+          <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+            <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Projected Gross Profit</p>
+            <p class="text-2xl font-extrabold text-emerald-600 mt-1" id="insightProjectedProfit">₹0</p>
+            <p class="text-xs text-slate-500 mt-1">Avg Margin: <span id="insightAvgMarginPct" class="font-bold text-emerald-700">0%</span> • Realized: <span id="insightRealizedProfit" class="font-semibold text-slate-800">₹0</span></p>
+          </div>
+          <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+            <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Customer Demand</p>
+            <p class="text-2xl font-extrabold mt-1"><span id="insightTotalViews">0</span> Views</p>
+            <p class="text-xs text-slate-500 mt-1"><span id="insightTotalWishlists" class="font-bold text-rose-600">0</span> Wishlist Saves • <span id="insightRegisteredUsers" class="font-semibold text-indigo-600">0</span> Registered</p>
+          </div>
+          <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+            <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Test Ride &amp; Offer Inquiries</p>
+            <p class="text-2xl font-extrabold text-indigo-600 mt-1" id="insightTotalLeads">0 Leads</p>
+            <p class="text-xs text-slate-500 mt-1">View-to-Lead: <span id="insightConversionRate" class="font-bold text-slate-800">0%</span></p>
+          </div>
+          <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+            <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Most In-Demand Segment</p>
+            <p class="text-xl font-extrabold mt-1" id="insightTopSegment">—</p>
+            <p class="text-xs text-slate-500 mt-1" id="insightTopCarName">—</p>
+          </div>
+          <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+            <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Inventory Aging</p>
+            <p class="text-2xl font-extrabold mt-1"><span id="insightAvgDays">0</span> Days Avg</p>
+            <p class="text-xs text-slate-500 mt-1"><span id="insightAgingCount" class="font-bold text-amber-600">0</span> bikes &gt; 30 days in stock</p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-to-r from-amber-50 via-white to-emerald-50 rounded-2xl p-5 border border-amber-200/80 shadow-sm">
+          <h3 class="text-xs font-extrabold uppercase tracking-wider text-amber-800 mb-2">💡 Smart Insights</h3>
+          <div id="adminSmartRecommendations" class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-700"></div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-7 bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-base font-extrabold">🔥 Demand Leaderboard</h3>
+                <p class="text-xs text-slate-500">Bikes ranked by views, wishlist saves and inquiries.</p>
+              </div>
+              <button type="button" id="insightQuickAddBtn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-3 py-1.5 rounded-lg transition">+ Add Bike</button>
+            </div>
+            <div id="insightDemandLeaderboard" class="space-y-3"></div>
+          </div>
+          <div class="lg:col-span-5 bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-sm space-y-5">
+            <div>
+              <h3 class="text-base font-extrabold">📊 Stock Distribution</h3>
+              <p class="text-xs text-slate-500">Asking-price value by bike type and fuel.</p>
+            </div>
+            <div><h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2.5">By Bike Type</h4><div id="insightBodyDistribution" class="space-y-2.5"></div></div>
+            <div class="pt-4 border-t border-slate-100"><h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2.5">By Fuel Type</h4><div id="insightFuelDistribution" class="space-y-2.5"></div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add / Edit -->
+      <div id="adminSubViewAdd" class="hidden space-y-6">
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+          <div class="flex flex-wrap items-center justify-between gap-4 pb-6 border-b border-slate-200">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-600" id="formModeBadge">Listing Studio</span>
+              <h3 class="text-2xl font-extrabold mt-0.5" id="formHeaderTitle">Add a New Bike to Showroom</h3>
+              <p class="text-sm text-slate-500">Photos are automatically compressed before upload, so uploading straight from a phone camera is fine.</p>
+            </div>
+            <button type="button" id="cancelFormToInsightsBtn" class="text-xs font-semibold text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 px-3.5 py-2 rounded-xl transition">← Back to Insights</button>
+          </div>
+
+          <form id="vehicleForm" class="mt-6 grid grid-cols-1 lg:grid-cols-3 gap-8" novalidate>
+            <input type="hidden" id="editVehicleId" value="" />
+            <div class="lg:col-span-2 space-y-6">
+              <div>
+                <h4 class="text-sm font-bold uppercase tracking-wider text-slate-700 mb-3">1. Identity, Asking Price &amp; Dealer Cost</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div><label for="inputMake" class="block text-xs font-semibold text-slate-700 mb-1">Brand / Make *</label><input type="text" id="inputMake" placeholder="e.g. Royal Enfield" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" /></div>
+                  <div><label for="inputModel" class="block text-xs font-semibold text-slate-700 mb-1">Model *</label><input type="text" id="inputModel" placeholder="e.g. Classic 350" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" /></div>
+                  <div><label for="inputVariant" class="block text-xs font-semibold text-slate-700 mb-1">Variant / Trim</label><input type="text" id="inputVariant" placeholder="e.g. Signals ABS" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" /></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                  <div><label for="inputPrice" class="block text-xs font-bold text-amber-700 mb-1">Customer Asking Price (₹) *</label><input type="number" id="inputPrice" min="10000" step="1000" placeholder="e.g. 145000" class="w-full rounded-xl border-2 border-amber-400 bg-amber-50/30 px-3.5 py-2 text-sm font-bold focus:ring-2 focus:ring-amber-500 focus:outline-none" /></div>
+                  <div><label for="inputCostPrice" class="block text-xs font-semibold text-slate-700 mb-1">Purchase Cost (₹) <span class="text-slate-400 font-normal">private</span></label><input type="number" id="inputCostPrice" min="0" step="1000" placeholder="e.g. 128000" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" /></div>
+                  <div><label for="inputRefurbCost" class="block text-xs font-semibold text-slate-700 mb-1">Refurbishment Cost (₹) <span class="text-slate-400 font-normal">private</span></label><input type="number" id="inputRefurbCost" min="0" step="500" value="3000" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" /></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                  <div><label for="inputYear" class="block text-xs font-semibold text-slate-700 mb-1">Registration Year *</label><input type="number" id="inputYear" min="2005" max="2030" placeholder="e.g. 2021" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" /></div>
+                  <div><label for="inputMileage" class="block text-xs font-semibold text-slate-700 mb-1">Kilometers Driven</label><input type="number" id="inputMileage" min="0" step="500" placeholder="e.g. 18000" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" /></div>
+                  <div><label for="inputInspectionScore" class="block text-xs font-semibold text-slate-700 mb-1">150-Pt Inspection Score (%)</label><input type="number" id="inputInspectionScore" min="70" max="100" value="96" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" /></div>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-slate-100">
+                <h4 class="text-sm font-bold uppercase tracking-wider text-slate-700 mb-3">2. Specifications &amp; RTO</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div><label for="inputBodyType" class="block text-xs font-semibold text-slate-700 mb-1">Bike Type</label>
+                    <select id="inputBodyType" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm bg-white"><option value="Commuter">Commuter</option><option value="Sports">Sports</option><option value="Cruiser">Cruiser</option><option value="Scooter">Scooter</option><option value="Adventure">Adventure / Touring</option><option value="Street">Street / Naked</option></select></div>
+                  <div><label for="inputFuel" class="block text-xs font-semibold text-slate-700 mb-1">Fuel Type</label>
+                    <select id="inputFuel" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm bg-white"><option value="Petrol">Petrol</option><option value="Electric">Electric (EV)</option><option value="CNG">Petrol + CNG</option></select></div>
+                  <div><label for="inputTransmission" class="block text-xs font-semibold text-slate-700 mb-1">Transmission</label>
+                    <select id="inputTransmission" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm bg-white"><option value="Manual">Manual (Geared)</option><option value="Automatic">Automatic (Scooter / CVT)</option></select></div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-4">
+                  <div><label for="inputOwners" class="block text-xs font-semibold text-slate-700 mb-1">Ownership</label>
+                    <select id="inputOwners" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm bg-white"><option value="1st Owner">1st Owner</option><option value="2nd Owner">2nd Owner</option><option value="3rd Owner">3rd Owner</option></select></div>
+                  <div><label for="inputColor" class="block text-xs font-semibold text-slate-700 mb-1">Exterior Color</label><input type="text" id="inputColor" value="Matte Black" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" /></div>
+                  <div><label for="inputRto" class="block text-xs font-semibold text-slate-700 mb-1">RTO Registration</label><input type="text" id="inputRto" value="MH-09" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" /></div>
+                  <div><label for="inputInsurance" class="block text-xs font-semibold text-slate-700 mb-1">Insurance</label>
+                    <select id="inputInsurance" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm bg-white"><option value="Zero Dep Active">Zero Dep Active</option><option value="Comprehensive Valid">Comprehensive Valid</option><option value="Third-Party Valid">Third-Party Valid</option></select></div>
+                </div>
+              </div>
+
+              <div class="pt-4 border-t border-slate-100 space-y-4">
+                <h4 class="text-sm font-bold uppercase tracking-wider text-slate-700">3. Features &amp; Inspection Notes</h4>
+                <div><label for="inputFeatures" class="block text-xs font-semibold text-slate-700 mb-1">Included Features (comma-separated)</label>
+                  <input type="text" id="inputFeatures" value="Disc Brake, ABS, LED Headlamp, Digital Console, Alloy Wheels" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" /></div>
+                <div><label for="inputDescription" class="block text-xs font-semibold text-slate-700 mb-1">Condition &amp; Service History Notes</label>
+                  <textarea id="inputDescription" rows="3" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">Certified by BIKE SHOP master technicians. Complete service history, original paint, good tyre tread.</textarea></div>
+              </div>
+            </div>
+
+            <div class="space-y-5 bg-slate-50 p-5 rounded-2xl border border-slate-200 h-fit">
+              <h4 class="text-sm font-bold uppercase tracking-wider text-slate-700">4. Real Photos (up to <span id="maxPhotosLabel">6</span>)</h4>
+              <div id="photoGrid" class="grid grid-cols-3 gap-2"></div>
+              <div>
+                <label for="inputPhotoUpload" class="block text-xs font-semibold text-slate-700 mb-1">Add photos from phone / computer</label>
+                <input type="file" id="inputPhotoUpload" accept="image/*" multiple class="w-full text-xs text-slate-600 file:mr-3 file:py-2 file:px-3.5 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-amber-500 file:text-slate-950 hover:file:bg-amber-400 cursor-pointer" />
+                <p class="text-[11px] text-slate-500 mt-1.5">The first photo is the cover shown on the card. Tap ★ on any photo to make it the cover.</p>
+              </div>
+
+              <div class="bg-white p-3.5 rounded-xl border border-slate-200 space-y-1">
+                <div class="flex justify-between text-xs"><span class="text-slate-500 font-medium">Total Dealer Cost:</span><span id="formLiveTotalCost" class="font-bold text-slate-800">₹0</span></div>
+                <div class="flex justify-between text-xs"><span class="text-slate-500 font-medium">Estimated Net Profit:</span><span id="formLiveNetProfit" class="font-extrabold text-emerald-600">₹0 (0%)</span></div>
+              </div>
+
+              <div><label for="inputStatus" class="block text-xs font-semibold text-slate-700 mb-1">Showroom Status</label>
+                <select id="inputStatus" class="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm bg-white"><option value="Available">Available in Showroom</option><option value="Reserved">Reserved (Token Received)</option><option value="Sold">Sold</option></select></div>
+
+              <div id="formErrorBox" class="hidden p-3 rounded-xl bg-red-50 border border-red-200 text-xs text-red-700 font-medium"></div>
+
+              <div class="pt-2 space-y-2.5">
+                <button type="submit" id="submitVehicleBtn" class="w-full bg-amber-500 hover:bg-amber-400 disabled:opacity-60 text-slate-950 font-extrabold text-sm py-3 px-4 rounded-xl shadow-md transition">+ Publish Bike to BIKE SHOP</button>
+                <button type="button" id="resetFormBtn" class="w-full bg-white hover:bg-slate-100 text-slate-700 font-semibold text-xs py-2.5 px-4 rounded-xl border border-slate-300 transition">Reset Form</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Inventory -->
+      <div id="adminSubViewInventory" class="hidden space-y-6">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5">
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-600">Inventory &amp; Pricing Control</span>
+              <h3 class="text-xl font-extrabold">Bike Stock, Asking Prices &amp; Margins</h3>
+              <p class="text-xs sm:text-sm text-slate-500">Change asking price or status inline, edit details, or export a CSV report.</p>
+            </div>
+            <div class="flex flex-wrap items-center gap-2.5">
+              <button type="button" id="dealerAddCarBtn" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs px-4 py-2.5 rounded-xl shadow transition">+ Add New Bike</button>
+              <button type="button" id="exportCsvBtn" class="bg-slate-900 hover:bg-slate-800 text-white font-semibold text-xs px-4 py-2.5 rounded-xl transition">⬇ Export CSV</button>
+            </div>
+          </div>
+          <div class="overflow-x-auto custom-scrollbar border border-slate-200 rounded-xl">
+            <table class="w-full text-left border-collapse min-w-[900px]">
+              <thead>
+                <tr class="bg-slate-100 text-slate-600 text-[11px] uppercase tracking-wider border-b border-slate-200">
+                  <th class="py-3 px-4 font-bold">Bike</th><th class="py-3 px-3 font-bold">Specs &amp; RTO</th><th class="py-3 px-3 font-bold text-right">Dealer Cost</th><th class="py-3 px-3 font-bold text-right">Asking Price (₹)</th><th class="py-3 px-3 font-bold text-right">Est. Margin</th><th class="py-3 px-3 font-bold text-center">Engagement</th><th class="py-3 px-3 font-bold">Status</th><th class="py-3 px-4 font-bold text-right">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="dealerTableBody" class="divide-y divide-slate-200 text-sm"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Security -->
+      <div id="adminSubViewSecurity" class="hidden space-y-6">
+        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-5 max-w-2xl">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Owner Security</span>
+            <h3 class="text-xl font-extrabold">Owner password</h3>
+            <ul class="mt-2 text-xs text-slate-600 space-y-1 list-disc pl-4">
+              <li>Open the owner login by tapping the BIKE SHOP logo 3 times.</li>
+              <li>The owner signs in with a real email + password (Supabase Auth); only accounts in the admins table get write access.</li>
+              <li>Admin auto-locks and signs out after 10 minutes idle, or 2 minutes after leaving the page.</li>
+            </ul>
+          </div>
+          <form id="changePinForm" class="space-y-3" autocomplete="off" novalidate>
+            <div id="changePinErrorBox" class="hidden p-2.5 rounded-lg bg-rose-50 border border-rose-200 text-xs text-rose-700 font-medium" role="alert"></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div><label for="changePinNew" class="block text-xs font-semibold text-slate-700 mb-1">New password (min 8 characters)</label><input type="password" id="changePinNew" autocomplete="new-password" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" /></div>
+              <div><label for="changePinConfirm" class="block text-xs font-semibold text-slate-700 mb-1">Confirm new password</label><input type="password" id="changePinConfirm" autocomplete="new-password" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" /></div>
+            </div>
+            <div class="flex flex-wrap gap-2 pt-1">
+              <button type="submit" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-xs px-4 py-2.5 rounded-xl shadow transition">Change Password</button>
+              <button type="button" id="lockNowBtn" class="bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs px-4 py-2.5 rounded-xl transition">Lock Admin Now</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Customers & leads -->
+      <div id="adminSubViewCustomers" class="hidden space-y-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+          <div class="lg:col-span-6 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-emerald-600">Customer Directory</span>
+                <h3 class="text-lg font-extrabold">Registered Customers &amp; Wishlists</h3>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200" id="registeredCustomersBadge">0 Users</span>
+            </div>
+            <div id="adminCustomersListContainer" class="space-y-3"></div>
+          </div>
+          <div class="lg:col-span-6 bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="text-xs font-bold uppercase tracking-wider text-indigo-600">Showroom Inquiries</span>
+                <h3 class="text-lg font-extrabold">Test-Ride &amp; Offer Leads</h3>
+              </div>
+              <span class="text-xs font-bold px-3 py-1 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-200" id="leadCountBadge">0 Leads</span>
+            </div>
+            <div id="leadsListContainer" class="space-y-3"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- SHOWROOM CONTACT FOOTER -->
+  <footer class="mt-auto bg-slate-950 text-slate-200 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h2 class="text-base font-extrabold text-white">BIKE SHOP — Showroom</h2>
+          <p class="mt-1 text-sm text-slate-300">
+            <span aria-hidden="true">📍</span> Address: Bailbajar Road, Karad
+          </p>
+        </div>
+        <div>
+          <p class="text-sm text-slate-300">
+            <span aria-hidden="true">📞</span> Contact:
+            <a href="tel:+919561623655" class="font-bold text-amber-400 hover:text-amber-300 underline underline-offset-2">9561623655</a>
+          </p>
+        </div>
+      </div>
+      <p class="mt-4 pt-4 border-t border-slate-800 text-xs text-slate-500">Contact BIKE SHOP for showroom visits and bike enquiries.</p>
+    </div>
+  </footer>
+
+  <!-- CUSTOMER AUTH MODAL -->
+  <div id="customerAuthModal" class="fixed inset-0 z-50 hidden bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-md w-full overflow-hidden shadow-2xl border border-slate-200 my-auto">
+      <div class="flex items-center justify-between px-6 py-4 bg-slate-900 text-white">
+        <div class="flex items-center gap-2.5">
+          <img src="data:image/png;base64,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" alt="बाईक शॉप कराड logo" width="160" height="52" decoding="async" class="w-16 h-8 object-contain shrink-0" />
+          <div><h3 class="text-base font-extrabold">BIKE SHOP Customer Portal</h3><p class="text-[11px] text-slate-400">Save wishlists &amp; book test rides</p></div>
+        </div>
+        <button type="button" id="closeCustomerAuthModalBtn" class="w-8 h-8 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold">✕</button>
+      </div>
+      <div class="grid grid-cols-2 bg-slate-100 p-1.5 m-5 mb-0 rounded-xl border border-slate-200">
+        <button type="button" id="authTabLoginBtn" class="py-2 rounded-lg text-xs font-bold bg-white text-slate-900 shadow-sm transition">Customer Login</button>
+        <button type="button" id="authTabRegisterBtn" class="py-2 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 transition">New Registration</button>
+      </div>
+      <div class="p-6 space-y-4">
+        <div id="customerAuthErrorBox" class="hidden p-3 rounded-xl bg-rose-50 border border-rose-200 text-xs text-rose-700 font-medium"></div>
+        <form id="customerLoginForm" class="space-y-3.5" novalidate>
+          <div><label for="loginIdentifier" class="block text-xs font-semibold text-slate-700 mb-1">Email *</label><input type="email" id="loginIdentifier" placeholder="you@example.com" autocomplete="email" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" /></div>
+          <div><label for="loginPassword" class="block text-xs font-semibold text-slate-700 mb-1">Password *</label><input type="password" id="loginPassword" autocomplete="current-password" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" /></div>
+          <button type="submit" id="customerLoginBtn" class="w-full bg-amber-500 hover:bg-amber-400 disabled:opacity-60 text-slate-950 font-extrabold text-sm py-2.5 rounded-xl shadow transition">Sign In to BIKE SHOP</button>
+        </form>
+        <form id="customerRegisterForm" class="hidden space-y-3" novalidate>
+          <div><label for="regFullName" class="block text-xs font-semibold text-slate-700 mb-1">Full Name *</label><input type="text" id="regFullName" autocomplete="name" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" /></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <div><label for="regPhone" class="block text-xs font-semibold text-slate-700 mb-1">Mobile Number *</label><input type="tel" id="regPhone" autocomplete="tel" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" /></div>
+            <div><label for="regCity" class="block text-xs font-semibold text-slate-700 mb-1">City / Town *</label><input type="text" id="regCity" value="Kolhapur" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" /></div>
+          </div>
+          <div><label for="regEmail" class="block text-xs font-semibold text-slate-700 mb-1">Email Address *</label><input type="email" id="regEmail" autocomplete="email" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" /></div>
+          <div><label for="regPassword" class="block text-xs font-semibold text-slate-700 mb-1">Create Password * <span class="text-slate-400 font-normal">(min 6 characters)</span></label><input type="password" id="regPassword" autocomplete="new-password" class="w-full rounded-xl border border-slate-300 px-3.5 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500" /></div>
+          <button type="submit" id="customerRegisterBtn" class="w-full bg-emerald-500 hover:bg-emerald-400 disabled:opacity-60 text-slate-950 font-extrabold text-sm py-2.5 rounded-xl shadow transition">Create Customer Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ADMIN LOGIN MODAL -->
+  <div id="adminPinModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-slate-900 text-white rounded-2xl max-w-sm w-full overflow-hidden shadow-2xl border border-slate-700 p-6 space-y-4">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <img src="data:image/png;base64,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" alt="बाईक शॉप कराड logo" width="160" height="52" decoding="async" class="w-16 h-8 object-contain shrink-0" />
+          <div><h3 class="text-base font-extrabold">Owner Verification</h3><p class="text-[11px] text-slate-400">Authorized staff only</p></div>
+        </div>
+        <button type="button" id="closeAdminPinModalBtn" class="text-slate-400 hover:text-white font-bold" aria-label="Close">✕</button>
+      </div>
+      <div id="adminPinErrorBox" class="hidden p-2.5 rounded-lg bg-rose-950/90 border border-rose-500/40 text-xs text-rose-300 font-medium" role="alert"></div>
+      <form id="adminPinForm" class="space-y-3" novalidate>
+        <div><label for="adminEmailInput" class="block text-xs font-semibold text-slate-300 mb-1">Owner email</label>
+          <input type="email" id="adminEmailInput" autocomplete="username" class="w-full rounded-xl bg-slate-800 border border-slate-600 px-3.5 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-400" /></div>
+        <div><label for="adminPinInput" class="block text-xs font-semibold text-slate-300 mb-1">Password</label>
+          <input type="password" id="adminPinInput" autocomplete="current-password" class="w-full rounded-xl bg-slate-800 border border-slate-600 px-3.5 py-2.5 text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-400" /></div>
+        <button type="submit" id="adminPinSubmitBtn" class="w-full bg-amber-500 hover:bg-amber-400 disabled:opacity-60 text-slate-950 font-extrabold text-sm py-2.5 rounded-xl shadow transition">Unlock</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- DETAIL MODAL -->
+  <div id="vehicleDetailModal" class="fixed inset-0 z-50 hidden bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-4xl w-full overflow-hidden shadow-2xl border border-slate-200 my-auto max-h-[92vh] flex flex-col">
+      <div class="flex items-center justify-between px-6 py-4 bg-slate-900 text-white">
+        <div>
+          <div class="flex items-center gap-2">
+            <span id="modalVehicleBadge" class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-amber-500 text-slate-950">Certified</span>
+            <span id="modalInspectionBadge" class="text-[11px] font-semibold px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">150-Pt Score</span>
+          </div>
+          <h3 id="modalVehicleTitle" class="text-lg sm:text-xl font-extrabold mt-1">Bike</h3>
+        </div>
+        <div class="flex items-center gap-2">
+          <button type="button" id="modalWishlistToggleBtn" class="px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-white flex items-center gap-1.5 border border-slate-700 transition"><span id="modalWishlistIcon">♡</span> <span id="modalWishlistText">Wishlist</span></button>
+          <button type="button" id="closeDetailModalBtn" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-lg font-bold">✕</button>
+        </div>
+      </div>
+      <div class="p-6 overflow-y-auto custom-scrollbar grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="lg:col-span-7 space-y-5">
+          <div class="rounded-xl overflow-hidden bg-slate-100 aspect-[4/3] border border-slate-200 relative">
+            <img id="modalVehicleImg" src="" alt="Bike photo" class="w-full h-full object-cover" />
+            <div class="absolute bottom-3 right-3 bg-slate-900/85 text-white text-[11px] font-semibold px-3 py-1 rounded-full">👁️ <span id="modalViewsCount">0</span> Views • ♥ <span id="modalWishlistsCount">0</span> Wishlisted</div>
+          </div>
+          <div id="modalThumbs" class="flex gap-2 overflow-x-auto custom-scrollbar"></div>
+          <div class="flex flex-wrap items-baseline justify-between gap-2 bg-slate-50 p-4 rounded-xl border border-slate-200">
+            <div><p class="text-xs text-slate-500 font-medium">BIKE SHOP Asking Price</p><p id="modalVehiclePrice" class="text-2xl sm:text-3xl font-extrabold">₹0</p></div>
+            <div class="text-right"><p class="text-xs text-slate-500 font-medium">Estimated Monthly EMI</p><p id="modalQuickEmi" class="text-base font-bold text-emerald-600">₹0 / mo</p></div>
+          </div>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 text-xs" id="modalSpecsGrid"></div>
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">Inspection Report &amp; History</h4>
+            <p id="modalVehicleDescription" class="text-sm text-slate-700 bg-slate-50 p-3.5 rounded-xl border border-slate-200 leading-relaxed"></p>
+          </div>
+          <div>
+            <h4 class="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">Included Features</h4>
+            <div id="modalFeaturesList" class="flex flex-wrap gap-2"></div>
+          </div>
+        </div>
+        <div class="lg:col-span-5 space-y-5">
+          <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200 space-y-3.5">
+            <div class="flex items-center justify-between"><h4 class="text-sm font-extrabold">Finance &amp; EMI Calculator</h4><span class="text-[11px] font-semibold text-emerald-700 bg-emerald-100 px-2 py-0.5 rounded-md">Instant Loan Desk</span></div>
+            <div>
+              <div class="flex justify-between text-xs font-semibold mb-1"><label for="emiDownPayment">Down Payment (10% - 80%)</label><span id="emiDownPaymentLabel">₹0</span></div>
+              <input type="range" id="emiDownPayment" min="10" max="80" step="5" value="25" class="w-full accent-amber-500 cursor-pointer" />
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div><label for="emiTenure" class="block text-xs font-semibold text-slate-600 mb-1">Tenure (Months)</label>
+                <select id="emiTenure" class="w-full rounded-lg border border-slate-300 px-2.5 py-1.5 text-xs bg-white"><option value="12">12 Months</option><option value="18">18 Months</option><option value="24">24 Months</option><option value="36" selected>36 Months</option><option value="48">48 Months</option></select></div>
+              <div><label for="emiInterest" class="block text-xs font-semibold text-slate-600 mb-1">Interest (% p.a.)</label>
+                <input type="number" id="emiInterest" min="6" max="24" step="0.5" value="11" class="w-full rounded-lg border border-slate-300 px-2.5 py-1.5 text-xs bg-white" /></div>
+            </div>
+            <div class="bg-white p-3.5 rounded-xl border border-slate-200 flex items-center justify-between">
+              <div><p class="text-[11px] text-slate-500 font-medium">Monthly Installment</p><p id="emiMonthlyResult" class="text-xl font-extrabold text-emerald-600">₹0 / mo</p></div>
+              <div class="text-right text-[11px] text-slate-500"><p>Loan: <span id="emiLoanAmt" class="font-bold text-slate-800">₹0</span></p><p>Interest: <span id="emiTotalInterest" class="font-bold text-slate-800">₹0</span></p></div>
+            </div>
+          </div>
+
+          <form id="leadBookingForm" class="bg-slate-900 text-white rounded-2xl p-4 sm:p-5 space-y-3" novalidate>
+            <h4 class="text-sm font-extrabold text-amber-400">Book a Showroom Visit / Make Offer</h4>
+            <p class="text-xs text-slate-300">Schedule a free test ride or send your offer to the owner.</p>
+            <div><label for="leadCustomerName" class="block text-xs font-medium text-slate-300 mb-1">Your Full Name *</label><input type="text" id="leadCustomerName" maxlength="100" class="w-full rounded-lg bg-slate-800 border border-slate-700 px-3 py-2 text-xs text-white focus:outline-none focus:ring-2 focus:ring-amber-400" /></div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <div><label for="leadCustomerPhone" class="block text-xs font-medium text-slate-300 mb-1">Phone Number *</label><input type="tel" id="leadCustomerPhone" maxlength="20" class="w-full rounded-lg bg-slate-800 border border-slate-700 px-3 py-2 text-xs text-white focus:outline-none focus:ring-2 focus:ring-amber-400" /></div>
+              <div><label for="leadPreferredDate" class="block text-xs font-medium text-slate-300 mb-1">Preferred Visit Date *</label><input type="date" id="leadPreferredDate" class="w-full rounded-lg bg-slate-800 border border-slate-700 px-3 py-2 text-xs text-white focus:outline-none focus:ring-2 focus:ring-amber-400" /></div>
+            </div>
+            <div><label for="leadOfferNote" class="block text-xs font-medium text-slate-300 mb-1">Message / Offer Price (Optional)</label><input type="text" id="leadOfferNote" maxlength="300" placeholder="e.g. Test ride at 5 PM" class="w-full rounded-lg bg-slate-800 border border-slate-700 px-3 py-2 text-xs text-white focus:outline-none focus:ring-2 focus:ring-amber-400" /></div>
+            <button type="submit" id="leadSubmitBtn" class="w-full bg-amber-500 hover:bg-amber-400 disabled:opacity-60 text-slate-950 font-extrabold text-xs py-2.5 rounded-xl shadow transition">Send Inquiry to BIKE SHOP</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARE MODAL -->
+  <div id="compareModal" class="fixed inset-0 z-50 hidden bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
+    <div class="bg-white rounded-2xl max-w-5xl w-full overflow-hidden shadow-2xl border border-slate-200 my-auto max-h-[90vh] flex flex-col">
+      <div class="flex items-center justify-between px-6 py-4 bg-slate-900 text-white">
+        <div><span class="text-xs font-bold uppercase tracking-wider text-amber-400">BIKE SHOP Comparison</span><h3 class="text-lg font-extrabold">Side-by-Side Bike Comparison</h3></div>
+        <button type="button" id="closeCompareModalBtn" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-bold">✕</button>
+      </div>
+      <div class="p-6 overflow-x-auto custom-scrollbar" id="compareModalBody"></div>
+    </div>
+  </div>
+
+  <div id="toastBanner" class="fixed bottom-5 right-5 z-[60] hidden bg-slate-900 text-white px-4 py-3 rounded-xl shadow-2xl border border-slate-700 flex items-center gap-3 text-xs sm:text-sm font-medium max-w-sm">
+    <span id="toastIcon" class="text-amber-400 text-base">✓</span><span id="toastMessage">Done</span>
+  </div>
+
+  <footer class="bg-slate-900 text-slate-400 text-xs py-6 mt-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-wrap items-center justify-between gap-4">
+      <div><span class="font-bold text-white">BIKE SHOP</span> • Certified Pre-Owned Bikes Showroom • Transparent Asking Prices &amp; Instant Finance</div>
+      <div class="flex items-center gap-4">
+        <button type="button" id="footerShowroomLink" class="hover:text-white transition">Showroom</button>
+        <button type="button" id="footerWishlistLink" class="hover:text-white transition">Wishlist</button>
+        <button type="button" id="footerCustomerAuthLink" class="hover:text-white transition">Login / Register</button>
+      </div>
+    </div>
+  </footer>
+
+<script>
+(function () {
+  // ===================== CONFIG =====================
+  const SUPABASE_URL = "https://jpvgxbyawyzzmsmyognp.supabase.co";
+  const SUPABASE_KEY = "sb_publishable_AounKeiabtAh0XH5QMkfDQ_wcBZ_iKs"; // publishable key: safe in the browser; real protection is RLS (schema.sql)
+  const BUCKET = "bike-photos";
+  const MAX_PHOTOS = 6;
+  const FULL_MAX_DIM = 1280, FULL_QUALITY = 0.78;   // ~120-250 KB per photo
+  const THUMB_MAX_DIM = 480, THUMB_QUALITY = 0.72;  // ~15-35 KB per thumbnail
+  const ADMIN_IDLE_MS = 10 * 60 * 1000;
+  const ADMIN_BACKGROUND_MS = 2 * 60 * 1000;
+
+  const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+  const PLACEHOLDER = "data:image/svg+xml;utf8," + encodeURIComponent(
+    '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><rect width="800" height="600" fill="#e2e8f0"/><text x="400" y="320" font-size="90" text-anchor="middle">🏍️</text><text x="400" y="390" font-size="26" fill="#64748b" text-anchor="middle" font-family="sans-serif">Photo coming soon</text></svg>');
+
+  // ===================== STATE =====================
+  let bikes = [];
+  let costs = {};            // bikeId -> {cost, refurb}   (admin only)
+  let customers = [];        // admin only
+  let allWishlists = [];     // admin only
+  let leads = [];            // admin only
+  let currentUser = null;
+  let profile = null;
+  let userWishlist = [];
+  let guestWishlist = [];
+  let compareIds = [];
+  let isAdminUnlocked = false;
+  let activeView = "showroom";
+  let currentCurrency = "INR";
+  let activeDetailVehicleId = null;
+  let formPhotos = [];       // [{url} existing | {file, preview} new]
+  let viewedThisSession = new Set();
+  let toastTimeout = null, logoClickCount = 0, logoClickTimer = null;
+  let lastAdminActivity = Date.now(), adminIdleTimer = null, adminHiddenAt = 0;
+
+  const $ = (id) => document.getElementById(id);
+  const esc = (v) => String(v == null ? "" : v).replace(/[&<>"']/g, ch => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch]));
+
+  // ===================== HELPERS =====================
+  function showToast(message, icon = "✓") {
+    $("toastMessage").textContent = message;
+    $("toastIcon").textContent = icon;
+    $("toastBanner").classList.remove("hidden");
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => $("toastBanner").classList.add("hidden"), 3800);
+  }
+
+  function formatPrice(n) {
+    const num = Number(n) || 0;
+    if (currentCurrency === "USD") return "$" + Math.round(num / 84).toLocaleString("en-US");
+    if (Math.abs(num) >= 100000) return "₹" + (num / 100000).toFixed(2).replace(/\.00$/, "") + " Lakh";
+    return "₹" + num.toLocaleString("en-IN");
+  }
+  function formatExact(n) {
+    const num = Math.round(Number(n) || 0);
+    if (currentCurrency === "USD") return "$" + Math.round(num / 84).toLocaleString("en-US");
+    return "₹" + num.toLocaleString("en-IN");
+  }
+  function calcEmi(principal, ratePct, months) {
+    const r = (Number(ratePct) || 11) / 12 / 100, n = Number(months) || 36;
+    if (principal <= 0) return 0;
+    if (r === 0) return Math.round(principal / n);
+    return Math.round((principal * r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1));
+  }
+  const thumbUrl = (u) => u ? u.replace(/(\.\w+)$/, "_t$1") : PLACEHOLDER;
+  const coverFull = (car) => (car.images && car.images[0]) || PLACEHOLDER;
+  const coverThumb = (car) => (car.images && car.images[0]) ? thumbUrl(car.images[0]) : PLACEHOLDER;
+  function pathFromUrl(u) { const i = (u || "").indexOf("/" + BUCKET + "/"); return i === -1 ? null : decodeURIComponent(u.slice(i + BUCKET.length + 2).split("?")[0]); }
+  function costOf(car) {
+    const c = costs[car.id];
+    return c ? (Number(c.cost) + Number(c.refurb)) : Math.round(car.price * 0.88) + 3000;
+  }
+
+  // fall back from thumbnail to full image if a thumbnail is missing
+  document.addEventListener("error", (e) => {
+    const t = e.target;
+    if (t && t.tagName === "IMG" && t.dataset && t.dataset.full && !t.dataset.fb) { t.dataset.fb = "1"; t.src = t.dataset.full; }
+  }, true);
+
+  function mapBike(r) {
+    return {
+      id: r.id, make: r.make, model: r.model, variant: r.variant || "", year: r.year, price: r.price,
+      mileage: r.mileage, fuel: r.fuel, transmission: r.transmission, bodyType: r.body_type,
+      owners: r.owners, color: r.color, rto: r.rto, insurance: r.insurance,
+      inspectionScore: r.inspection_score, status: r.status, features: r.features || [],
+      description: r.description || "", images: r.images || [], views: r.views || 0,
+      wishlistCount: r.wishlist_count || 0, createdAt: r.created_at,
+      daysInStock: Math.max(0, Math.floor((Date.now() - new Date(r.created_at).getTime()) / 864e5))
+    };
+  }
+
+  // ===================== DATA LOADING =====================
+  let bikesLoaded = false;
+  let bikesReady = Promise.resolve();
+  async function loadBikes() {
+    const { data, error } = await sb.from("bikes").select("*").order("created_at", { ascending: false });
+    bikesLoaded = true;
+    const box = $("loadErrorBox");
+    if (error) {
+      box.textContent = "Could not load bikes: " + error.message + " (Has schema.sql been run in Supabase?)";
+      box.classList.remove("hidden");
+      return;
+    }
+    box.classList.add("hidden");
+    bikes = (data || []).map(mapBike);
+  }
+
+  async function loadAdminData() {
+    const [c, p, w, l] = await Promise.all([
+      sb.from("bike_costs").select("*"),
+      sb.from("profiles").select("*").order("created_at", { ascending: false }),
+      sb.from("wishlists").select("user_id,bike_id"),
+      sb.from("leads").select("*").order("created_at", { ascending: false })
+    ]);
+    costs = {};
+    (c.data || []).forEach(r => { costs[r.bike_id] = { cost: r.cost_price, refurb: r.refurb_cost }; });
+    customers = (p.data || []).filter(x => !currentUser || x.id !== currentUser.id);
+    allWishlists = w.data || [];
+    leads = l.data || [];
+  }
+
+  async function refreshSession() {
+    const { data } = await sb.auth.getSession();
+    currentUser = data && data.session ? data.session.user : null;
+    profile = null; userWishlist = [];
+    if (!currentUser) return;
+    const [p, w] = await Promise.all([
+      sb.from("profiles").select("*").eq("id", currentUser.id).maybeSingle(),
+      sb.from("wishlists").select("bike_id").eq("user_id", currentUser.id)
+    ]);
+    profile = p.data || null;
+    userWishlist = (w.data || []).map(r => r.bike_id);
+    if (guestWishlist.length) {
+      await bikesReady;
+      const missing = guestWishlist.filter(id => !userWishlist.includes(id) && bikes.some(b => b.id === id));
+      if (missing.length) {
+        const { error } = await sb.from("wishlists").insert(missing.map(id => ({ user_id: currentUser.id, bike_id: id })));
+        if (!error) userWishlist.push(...missing);
+      }
+      guestWishlist = []; saveGuestWishlist();
+    }
+  }
+
+  function saveGuestWishlist() { try { localStorage.setItem("bs_guest_wishlist", JSON.stringify(guestWishlist)); } catch (e) {} }
+  function loadGuestWishlist() { try { const r = JSON.parse(localStorage.getItem("bs_guest_wishlist") || "[]"); guestWishlist = Array.isArray(r) ? r : []; } catch (e) { guestWishlist = []; } }
+  const getWishIds = () => currentUser ? userWishlist : guestWishlist;
+  const displayName = () => (profile && profile.name) || (currentUser && currentUser.email) || "Customer";
+
+  // ===================== VIEWS =====================
+  function switchView(view) {
+    if (view === "admin" && !isAdminUnlocked) { openAdminModal(); return; }
+    activeView = view;
+    ["showroom", "wishlist"].forEach(v => $("view" + v[0].toUpperCase() + v.slice(1)).classList.toggle("hidden", v !== view));
+    $("viewAdminPanel").classList.toggle("hidden", view !== "admin");
+
+    $("navShowroomBtn").className = view === "showroom"
+      ? "px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-amber-500 text-slate-950 shadow"
+      : "px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700/60";
+    $("navWishlistBtn").className = view === "wishlist"
+      ? "px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-semibold bg-amber-500 text-slate-950 shadow flex items-center gap-1.5"
+      : "px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-700/60 flex items-center gap-1.5";
+    const ab = $("navAdminPanelBtn");
+    if (isAdminUnlocked) {
+      ab.classList.remove("hidden");
+      ab.className = view === "admin"
+        ? "px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-emerald-400 text-slate-950 shadow ring-2 ring-white/30"
+        : "px-3.5 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 hover:bg-emerald-500 hover:text-slate-950";
+    } else ab.classList.add("hidden");
+    renderAll();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function switchAdminSubTab(tab) {
+    const map = { insights: "adminSubViewInsights", add: "adminSubViewAdd", inventory: "adminSubViewInventory", customers: "adminSubViewCustomers", security: "adminSubViewSecurity" };
+    Object.keys(map).forEach(k => $(map[k]).classList.toggle("hidden", k !== tab));
+    document.querySelectorAll(".admin-subtab-btn").forEach(btn => {
+      btn.className = "admin-subtab-btn px-4 py-2 rounded-xl text-xs sm:text-sm transition " + (btn.dataset.adminTab === tab
+        ? "font-bold bg-amber-500 text-slate-950 shadow"
+        : "font-semibold bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700");
+    });
+    renderAdminDashboard();
+  }
+
+  // ===================== RENDER: SHOWROOM =====================
+  function renderAuthHeader() {
+    const logged = !!currentUser;
+    $("openCustomerAuthBtn").classList.toggle("hidden", logged);
+    $("loggedInCustomerBox").classList.toggle("hidden", !logged);
+    $("loggedInCustomerBox").classList.toggle("inline-flex", logged);
+    $("wishlistSignInPromptBtn").classList.toggle("hidden", logged);
+    if (logged) {
+      $("customerHeaderName").textContent = displayName();
+      $("heroCustomerLoginPromptBtn").textContent = "✓ Welcome, " + displayName().split(" ")[0];
+      $("wishlistHeaderTitle").textContent = displayName() + "'s Wishlisted Bikes";
+    } else {
+      $("heroCustomerLoginPromptBtn").textContent = "👤 Customer Sign In / Register";
+      $("wishlistHeaderTitle").textContent = "My Wishlisted Bikes";
+    }
+  }
+
+  function renderCounts() {
+    const wl = getWishIds().filter(id => bikes.some(b => b.id === id)).length;
+    const avail = bikes.filter(v => v.status === "Available");
+    const minP = avail.length ? Math.min(...avail.map(v => v.price)) : 0;
+    $("navCountAvailable").textContent = bikes.length;
+    $("navCountWishlist").textContent = wl;
+    $("heroWishlistCount").textContent = wl;
+    $("customerHeroAvailableCount").textContent = avail.length;
+    $("customerHeroMinPrice").textContent = minP > 0 ? formatPrice(minP) : "—";
+  }
+
+  function getFiltered() {
+    const search = ($("filterSearch").value || "").trim().toLowerCase();
+    const body = $("filterBody").value, fuel = $("filterFuel").value, trans = $("filterTransmission").value, sort = $("filterSort").value;
+    const maxPrice = Number($("filterMaxPrice").value || 1500000), hideSold = $("filterHideSold").checked;
+    $("filterMaxPriceLabel").textContent = maxPrice >= 1500000 ? "Any Budget" : "Up to " + formatPrice(maxPrice);
+    const list = bikes.filter(v => {
+      if (hideSold && v.status !== "Available") return false;
+      if (body !== "ALL" && v.bodyType !== body) return false;
+      if (fuel !== "ALL" && v.fuel !== fuel) return false;
+      if (trans !== "ALL" && v.transmission !== trans) return false;
+      if (maxPrice < 1500000 && v.price > maxPrice) return false;
+      if (search && !`${v.make} ${v.model} ${v.variant} ${v.year} ${v.color} ${v.rto} ${v.features.join(" ")}`.toLowerCase().includes(search)) return false;
+      return true;
+    });
+    list.sort((a, b) => {
+      if (sort === "price_asc") return a.price - b.price;
+      if (sort === "price_desc") return b.price - a.price;
+      if (sort === "year_desc") return b.year - a.year;
+      if (sort === "mileage_asc") return a.mileage - b.mileage;
+      if (sort === "popular") return (b.wishlistCount * 3 + b.views) - (a.wishlistCount * 3 + a.views);
+      return new Date(b.createdAt) - new Date(a.createdAt);
+    });
+    return list;
+  }
+
+  function cardHtml(car) {
+    const saved = getWishIds().includes(car.id), compared = compareIds.includes(car.id);
+    const emi = calcEmi(car.price * 0.75, 11, 36);
+    const badge = car.status === "Reserved" ? "bg-amber-400 text-slate-950" : car.status === "Sold" ? "bg-rose-600 text-white" : "bg-emerald-500 text-slate-950";
+    const nPhotos = car.images.length;
+    return `
+      <article class="bg-white rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col">
+        <div class="relative aspect-[4/3] bg-slate-100 overflow-hidden group cursor-pointer" data-action="open-detail" data-id="${esc(car.id)}">
+          <img src="${esc(coverThumb(car))}" data-full="${esc(coverFull(car))}" loading="lazy" alt="${esc(car.make + " " + car.model)}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+          <div class="absolute top-3 left-3 flex items-center gap-1.5">
+            <span class="text-[11px] font-extrabold uppercase tracking-wider px-2.5 py-1 rounded-full shadow ${badge}">${esc(car.status)}</span>
+            ${nPhotos > 1 ? `<span class="text-[11px] font-semibold bg-slate-900/85 text-white px-2 py-1 rounded-full">📷 ${nPhotos}</span>` : ""}
+          </div>
+          <button type="button" data-action="toggle-wishlist" data-id="${esc(car.id)}" class="absolute top-3 right-3 px-2.5 py-1.5 rounded-full ${saved ? "bg-rose-500 text-white" : "bg-white/95 text-slate-800 hover:bg-white"} shadow flex items-center gap-1 text-xs font-bold transition"><span>${saved ? "♥" : "♡"}</span><span>${car.wishlistCount}</span></button>
+          <div class="absolute bottom-2.5 left-2.5 right-2.5 flex items-center justify-between text-[11px] text-white bg-slate-950/75 px-3 py-1.5 rounded-lg">
+            <span>${Number(car.mileage).toLocaleString("en-IN")} km</span><span>•</span><span>${esc(car.fuel)}</span><span>•</span><span>${esc(car.transmission)}</span><span>•</span><span>${esc(car.owners)}</span>
+          </div>
+        </div>
+        <div class="p-4 sm:p-5 flex-1 flex flex-col justify-between space-y-4">
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-600">${esc(car.bodyType)} • ${esc(car.rto)} • ${esc(car.inspectionScore)}% Score</span>
+            <h3 class="text-base sm:text-lg font-extrabold leading-snug mt-0.5">${esc(car.make)} ${esc(car.model)}</h3>
+            <p class="text-xs text-slate-500 font-medium">${esc(car.variant)}</p>
+            <div class="mt-3 pt-3 border-t border-slate-100 flex items-baseline justify-between">
+              <div>
+                <span class="text-[10px] uppercase tracking-wider text-slate-400 font-bold block">Asking Price</span>
+                <span class="text-xl font-extrabold">${formatPrice(car.price)}</span>
+                <p class="text-[11px] text-emerald-600 font-semibold">EMI from ${formatExact(emi)}/mo</p>
+              </div>
+              <div class="text-right">
+                <span class="text-[11px] text-slate-600 bg-slate-100 px-2 py-1 rounded-md font-medium">${esc(car.color)}</span>
+                <p class="text-[11px] text-slate-400 mt-1">👁️ ${car.views} watched</p>
+              </div>
+            </div>
+            <div class="mt-3 flex flex-wrap gap-1.5">${car.features.slice(0, 3).map(f => `<span class="text-[11px] bg-slate-100 text-slate-700 px-2 py-0.5 rounded-md font-medium">${esc(f)}</span>`).join("")}</div>
+          </div>
+          <div class="pt-2 flex items-center gap-2">
+            <button type="button" data-action="open-detail" data-id="${esc(car.id)}" class="flex-1 bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs py-2.5 px-3 rounded-xl transition">Watch Details &amp; EMI</button>
+            <button type="button" data-action="toggle-wishlist" data-id="${esc(car.id)}" class="px-3 py-2.5 rounded-xl text-xs font-bold border transition ${saved ? "bg-rose-50 border-rose-300 text-rose-600" : "bg-white border-slate-300 text-slate-700 hover:bg-slate-50"}">${saved ? "♥ Wishlisted" : "♡ Wishlist"}</button>
+            <button type="button" data-action="toggle-compare" data-id="${esc(car.id)}" title="Compare" class="px-2.5 py-2.5 rounded-xl text-xs font-semibold border transition ${compared ? "bg-amber-500 border-amber-500 text-slate-950" : "bg-white border-slate-300 text-slate-600 hover:bg-slate-50"}">${compared ? "✓" : "⇄"}</button>
+          </div>
+        </div>
+      </article>`;
+  }
+
+  function renderShowroom() {
+    if (!bikesLoaded) {
+      $("vehiclesGrid").innerHTML = Array.from({ length: 6 }, () => '<div class="rounded-2xl border border-slate-200 bg-white overflow-hidden animate-pulse"><div class="h-48 bg-slate-200"></div><div class="p-4 space-y-3"><div class="h-4 bg-slate-200 rounded w-3/4"></div><div class="h-3 bg-slate-200 rounded w-1/2"></div><div class="h-8 bg-slate-200 rounded"></div></div></div>').join("");
+      $("emptyShowroomState").classList.add("hidden");
+      return;
+    }
+    const list = getFiltered();
+    $("resultsCountText").textContent = `Showing ${list.length} of ${bikes.length} bikes`;
+    $("vehiclesGrid").innerHTML = list.map(cardHtml).join("");
+    $("emptyShowroomState").classList.toggle("hidden", list.length > 0);
+    renderCompareTray();
+  }
+
+  function renderCompareTray() {
+    compareIds = compareIds.filter(id => bikes.some(v => v.id === id));
+    $("compareTray").classList.toggle("hidden", compareIds.length === 0);
+    $("compareCount").textContent = compareIds.length;
+    $("comparePillsContainer").innerHTML = compareIds.map(id => {
+      const c = bikes.find(v => v.id === id);
+      return `<div class="inline-flex items-center gap-2 bg-slate-800 border border-slate-700 px-3 py-1 rounded-lg text-xs"><span class="font-semibold">${esc(c.make)} ${esc(c.model)}</span><button type="button" data-action="remove-compare" data-id="${esc(id)}" class="text-slate-400 hover:text-white font-bold">✕</button></div>`;
+    }).join("");
+  }
+
+  function renderWishlistView() {
+    const ids = getWishIds();
+    const saved = bikes.filter(v => ids.includes(v.id));
+    $("savedVehiclesGrid").innerHTML = saved.map(cardHtml).join("");
+    $("emptySavedState").classList.toggle("hidden", saved.length > 0);
+  }
+
+  // ===================== RENDER: ADMIN =====================
+  function renderAdminDashboard() {
+    if (!isAdminUnlocked) return;
+    const active = bikes.filter(v => v.status !== "Sold"), sold = bikes.filter(v => v.status === "Sold");
+    const profitOf = (v) => Math.max(0, v.price - costOf(v));
+    const totalVal = active.reduce((s, v) => s + v.price, 0);
+    const avgAsk = active.length ? Math.round(totalVal / active.length) : 0;
+    const projProfit = active.reduce((s, v) => s + profitOf(v), 0);
+    const realized = sold.reduce((s, v) => s + profitOf(v), 0);
+    const marginPct = totalVal > 0 ? ((projProfit / totalVal) * 100).toFixed(1) : "0.0";
+    const totalViews = bikes.reduce((s, v) => s + v.views, 0), totalWish = bikes.reduce((s, v) => s + v.wishlistCount, 0);
+    const conv = totalViews > 0 ? ((leads.length / totalViews) * 100).toFixed(1) : "0.0";
+    const avgDays = active.length ? Math.round(active.reduce((s, v) => s + v.daysInStock, 0) / active.length) : 0;
+    const aging = active.filter(v => v.daysInStock >= 30);
+
+    $("insightTotalValuation").textContent = formatPrice(totalVal);
+    $("insightActiveCount").textContent = active.length;
+    $("insightAvgAsking").textContent = formatPrice(avgAsk);
+    $("insightProjectedProfit").textContent = formatPrice(projProfit);
+    $("insightAvgMarginPct").textContent = marginPct + "%";
+    $("insightRealizedProfit").textContent = formatPrice(realized);
+    $("insightTotalViews").textContent = totalViews.toLocaleString("en-IN");
+    $("insightTotalWishlists").textContent = totalWish.toLocaleString("en-IN");
+    $("insightRegisteredUsers").textContent = customers.length;
+    $("insightTotalLeads").textContent = leads.length + " Leads";
+    $("insightConversionRate").textContent = conv + "%";
+    $("insightAvgDays").textContent = avgDays;
+    $("insightAgingCount").textContent = aging.length;
+    $("adminTabCustomerCount").textContent = customers.length + leads.length;
+
+    const ranked = [...bikes].sort((a, b) => (b.wishlistCount * 4 + b.views) - (a.wishlistCount * 4 + a.views));
+    const top = ranked[0];
+    $("insightTopSegment").textContent = top ? `${top.bodyType} • ${top.fuel}` : "—";
+    $("insightTopCarName").textContent = top ? `Most wanted: ${top.make} ${top.model} (${top.wishlistCount} ♥)` : "Add bikes to see demand";
+
+    const best = [...active].sort((a, b) => profitOf(b) - profitOf(a))[0];
+    $("adminSmartRecommendations").innerHTML = [
+      `<div class="bg-white p-3.5 rounded-xl border border-amber-200"><div class="font-bold">🔥 Hot Customer Demand</div><p class="mt-1 text-slate-600">${top ? `<strong>${esc(top.make)} ${esc(top.model)}</strong> leads with ${top.views} views and ${top.wishlistCount} wishlist saves. Hold firm on ${formatPrice(top.price)}.` : "Add bikes to track demand."}</p></div>`,
+      `<div class="bg-white p-3.5 rounded-xl border border-emerald-200"><div class="font-bold">💎 Highest Profit Opportunity</div><p class="mt-1 text-slate-600">${best ? `<strong>${esc(best.make)} ${esc(best.model)}</strong> has an estimated margin of <strong>${formatPrice(profitOf(best))}</strong>. Prioritise follow-ups on it.` : "No active stock."}</p></div>`,
+      `<div class="bg-white p-3.5 rounded-xl border border-indigo-200"><div class="font-bold">⏱️ Stock Turnaround</div><p class="mt-1 text-slate-600">${aging.length ? `<strong>${esc(aging[0].make)} ${esc(aging[0].model)}</strong> has been in stock ${aging[0].daysInStock} days. Consider a 2–3% price revision.` : "All active bikes are fresh (&lt; 30 days)."}</p></div>`
+    ].join("");
+
+    $("insightDemandLeaderboard").innerHTML = ranked.length ? ranked.map((car, idx) => {
+      const carLeads = leads.filter(l => l.bike_id === car.id).length;
+      let badge = `<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">⚡ Steady</span>`;
+      if (idx === 0 && (car.views || car.wishlistCount)) badge = `<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-700">🔥 High Demand</span>`;
+      else if (car.daysInStock >= 30 && car.status !== "Sold") badge = `<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-800">⚠️ Aging (${car.daysInStock}d)</span>`;
+      return `<div class="p-3.5 rounded-xl bg-slate-50 border border-slate-200 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-3">
+          <span class="w-6 h-6 rounded-full bg-slate-900 text-amber-400 font-extrabold text-xs flex items-center justify-center">#${idx + 1}</span>
+          <img src="${esc(coverThumb(car))}" data-full="${esc(coverFull(car))}" alt="" class="w-12 h-9 rounded-lg object-cover border border-slate-200" />
+          <div>
+            <div class="flex items-center gap-2"><span class="text-xs sm:text-sm font-extrabold">${esc(car.make)} ${esc(car.model)}</span>${badge}</div>
+            <p class="text-[11px] text-slate-500">Asking: <strong>${formatPrice(car.price)}</strong> • Est. Profit: <strong class="text-emerald-600">${formatPrice(profitOf(car))}</strong></p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 text-xs">
+          <div class="text-center"><div class="font-extrabold">${car.views}</div><div class="text-[10px] text-slate-500">Views</div></div>
+          <div class="text-center"><div class="font-extrabold text-rose-600">${car.wishlistCount} ♥</div><div class="text-[10px] text-slate-500">Wishlists</div></div>
+          <div class="text-center"><div class="font-extrabold text-indigo-600">${carLeads}</div><div class="text-[10px] text-slate-500">Leads</div></div>
+          <button type="button" data-action="admin-edit-car" data-id="${esc(car.id)}" class="text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-white border border-slate-300 hover:bg-slate-100 text-slate-700 transition">Edit</button>
+        </div></div>`;
+    }).join("") : `<p class="text-xs text-slate-500">No bikes yet — add your first bike.</p>`;
+
+    const totalAll = bikes.reduce((s, v) => s + v.price, 0) || 1;
+    const bars = (key, color) => {
+      const g = {}; bikes.forEach(v => { g[v[key]] = (g[v[key]] || 0) + v.price; });
+      return Object.entries(g).sort((a, b) => b[1] - a[1]).map(([k, val]) => {
+        const pct = Math.round((val / totalAll) * 100), n = bikes.filter(v => v[key] === k).length;
+        return `<div><div class="flex justify-between text-xs mb-1"><span class="font-bold text-slate-700">${esc(k)} (${n})</span><span class="font-semibold">${formatPrice(val)} (${pct}%)</span></div><div class="w-full h-2 rounded-full bg-slate-100 overflow-hidden"><div class="h-full ${color} rounded-full" style="width:${pct}%"></div></div></div>`;
+      }).join("");
+    };
+    $("insightBodyDistribution").innerHTML = bars("bodyType", "bg-amber-500");
+    $("insightFuelDistribution").innerHTML = bars("fuel", "bg-emerald-500");
+
+    $("dealerTableBody").innerHTML = bikes.map(car => {
+      const tc = costOf(car), margin = car.price - tc, mp = car.price > 0 ? ((margin / car.price) * 100).toFixed(1) : "0.0";
+      const refurb = costs[car.id] ? costs[car.id].refurb : 3000;
+      return `<tr class="hover:bg-slate-50 transition">
+        <td class="py-3 px-4"><div class="flex items-center gap-3">
+          <img src="${esc(coverThumb(car))}" data-full="${esc(coverFull(car))}" alt="" class="w-14 h-10 rounded-lg object-cover border border-slate-200 shrink-0" />
+          <div><div class="font-bold">${esc(car.make)} ${esc(car.model)}</div><div class="text-xs text-slate-500">${esc(car.variant)}</div></div></div></td>
+        <td class="py-3 px-3 text-xs text-slate-700"><span class="inline-block bg-slate-100 px-2 py-0.5 rounded font-semibold">${esc(car.bodyType)}</span><div class="text-slate-500 mt-0.5">${esc(car.fuel)} • ${esc(car.transmission)} • ${esc(car.rto)}</div></td>
+        <td class="py-3 px-3 text-xs text-slate-600 text-right"><div class="font-semibold text-slate-800">${formatPrice(tc)}</div><div class="text-[10px] text-slate-400">Incl. ₹${Number(refurb).toLocaleString("en-IN")} refurb</div></td>
+        <td class="py-3 px-3 text-right">
+          <div class="inline-flex items-center gap-1 justify-end">
+            <input type="number" data-action="inline-price-input" data-id="${esc(car.id)}" aria-label="Asking price" value="${car.price}" step="1000" class="w-28 rounded-lg border border-slate-300 px-2 py-1 text-xs font-extrabold text-right focus:outline-none focus:ring-2 focus:ring-amber-500" />
+            <button type="button" data-action="save-inline-price" data-id="${esc(car.id)}" class="bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-[11px] px-2 py-1 rounded-lg transition">Save</button>
+          </div><div class="text-[11px] font-bold text-slate-500 mt-0.5">${formatPrice(car.price)}</div></td>
+        <td class="py-3 px-3 text-right"><span class="text-xs font-extrabold ${margin >= 0 ? "text-emerald-600" : "text-rose-600"}">${formatPrice(margin)}</span><div class="text-[10px] text-slate-500">${mp}% margin</div></td>
+        <td class="py-3 px-3 text-center text-xs"><span class="font-bold">👁️ ${car.views}</span><span class="mx-1 text-slate-300">•</span><span class="font-bold text-rose-600">♥ ${car.wishlistCount}</span></td>
+        <td class="py-3 px-3"><select data-action="change-status" data-id="${esc(car.id)}" class="text-xs font-semibold rounded-lg border border-slate-300 px-2.5 py-1.5 bg-white">
+          ${["Available", "Reserved", "Sold"].map(s => `<option value="${s}" ${car.status === s ? "selected" : ""}>${s}</option>`).join("")}</select></td>
+        <td class="py-3 px-4 text-right space-x-1 whitespace-nowrap">
+          <button type="button" data-action="open-detail" data-id="${esc(car.id)}" class="text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 text-slate-700 transition">View</button>
+          <button type="button" data-action="edit-vehicle" data-id="${esc(car.id)}" class="text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-amber-100 hover:bg-amber-200 text-amber-900 transition">Edit</button>
+          <button type="button" data-action="delete-vehicle" data-id="${esc(car.id)}" class="text-xs font-semibold px-2.5 py-1.5 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 transition">Delete</button>
+        </td></tr>`;
+    }).join("") || `<tr><td colspan="8" class="py-8 text-center text-sm text-slate-500">No bikes yet. Click "+ Add New Bike".</td></tr>`;
+
+    $("registeredCustomersBadge").textContent = customers.length + " Registered";
+    $("adminCustomersListContainer").innerHTML = customers.length ? customers.map(c => {
+      const wished = allWishlists.filter(w => w.user_id === c.id).map(w => bikes.find(b => b.id === w.bike_id)).filter(Boolean);
+      return `<div class="p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+        <div class="flex items-start justify-between gap-2">
+          <div><h4 class="text-sm font-extrabold">👤 ${esc(c.name || "(no name)")} <span class="text-xs font-medium text-slate-500">(${esc(c.city || "—")})</span></h4><p class="text-xs text-slate-600">${esc(c.phone || "—")} • ${esc(c.email || "")}</p></div>
+          <span class="text-[11px] bg-white px-2.5 py-0.5 rounded-full border border-slate-200 text-slate-500 font-medium">Joined: ${esc(new Date(c.created_at).toLocaleDateString("en-IN"))}</span>
+        </div>
+        <div><span class="text-[11px] font-bold uppercase tracking-wider text-rose-600 block mb-1">Wishlisted (${wished.length}):</span>
+        ${wished.length ? `<div class="flex flex-wrap gap-1.5">${wished.map(b => `<span class="text-[11px] bg-white border border-rose-200 px-2.5 py-1 rounded-lg font-semibold">♥ ${esc(b.make)} ${esc(b.model)} (${formatPrice(b.price)})</span>`).join("")}</div>` : `<span class="text-xs text-slate-400 italic">No bikes wishlisted yet</span>`}</div></div>`;
+    }).join("") : `<p class="text-xs text-slate-500">No registered customers yet.</p>`;
+
+    $("leadCountBadge").textContent = leads.length + " Inquiries";
+    $("leadsListContainer").innerHTML = leads.length ? leads.map(l => `
+      <div class="p-4 rounded-xl bg-slate-50 border border-slate-200 flex flex-col gap-2.5">
+        <div class="flex items-start justify-between gap-2">
+          <div><span class="text-[11px] font-bold text-indigo-600 uppercase">${esc(l.bike_title)}</span>
+            <h4 class="text-sm font-bold mt-0.5">${esc(l.customer_name)} • <a href="tel:${esc(l.customer_phone)}" class="text-slate-600 font-medium underline">${esc(l.customer_phone)}</a></h4></div>
+          <span class="text-[11px] bg-white px-2.5 py-0.5 rounded-full border border-slate-200 text-slate-600 font-medium">Visit: ${esc(l.preferred_date || "—")}</span>
+        </div>
+        <p class="text-xs text-slate-700 bg-white p-2.5 rounded-lg border border-slate-200/80">${esc(l.note || "Requested showroom inspection & test ride.")}</p>
+        <div class="flex items-center justify-between pt-1">
+          <span class="text-[11px] text-slate-400">Submitted: ${esc(new Date(l.created_at).toLocaleString("en-IN"))}</span>
+          <select data-action="change-lead-status" data-id="${esc(l.id)}" class="text-xs font-semibold rounded-lg border border-slate-300 px-2.5 py-1 bg-white">
+            ${["New Inquiry", "Test Ride Scheduled", "Price Negotiation", "Closed / Converted"].map(s => `<option value="${s}" ${l.status === s ? "selected" : ""}>${s}</option>`).join("")}</select>
+        </div></div>`).join("") : `<p class="text-xs text-slate-500 py-4">No customer inquiries yet.</p>`;
+  }
+
+  function renderAll() {
+    renderAuthHeader();
+    renderCounts();
+    renderShowroom();
+    renderWishlistView();
+    renderAdminDashboard();
+  }
+
+  // ===================== WISHLIST =====================
+  async function toggleWishlist(id) {
+    const car = bikes.find(v => v.id === id);
+    if (!car) return;
+    const ids = [...getWishIds()], has = ids.includes(id);
+    if (currentUser) {
+      const res = has
+        ? await sb.from("wishlists").delete().match({ user_id: currentUser.id, bike_id: id })
+        : await sb.from("wishlists").insert({ user_id: currentUser.id, bike_id: id });
+      if (res.error) { showToast("Could not update wishlist: " + res.error.message, "⚠️"); return; }
+      userWishlist = has ? ids.filter(x => x !== id) : [...ids, id];
+    } else {
+      guestWishlist = has ? ids.filter(x => x !== id) : [...ids, id];
+      saveGuestWishlist();
+    }
+    car.wishlistCount = Math.max(0, car.wishlistCount + (has ? -1 : 1));
+    showToast(has ? `Removed ${car.make} ${car.model} from wishlist` : (currentUser ? `Saved ${car.make} ${car.model} to your wishlist!` : `Added ${car.make} ${car.model}! Sign in to keep it across devices.`), has ? "✓" : "♥");
+    renderAll();
+    if (activeDetailVehicleId === id) updateModalWishlistState(id);
+  }
+
+  function updateModalWishlistState(id) {
+    const saved = getWishIds().includes(id), car = bikes.find(v => v.id === id);
+    $("modalWishlistIcon").textContent = saved ? "♥" : "♡";
+    $("modalWishlistText").textContent = saved ? "Wishlisted" : "Add to Wishlist";
+    if (car) $("modalWishlistsCount").textContent = car.wishlistCount;
+  }
+
+  // ===================== DETAIL MODAL =====================
+  function openDetail(id) {
+    const car = bikes.find(v => v.id === id);
+    if (!car) return;
+    activeDetailVehicleId = id;
+    if (!viewedThisSession.has(id)) {
+      viewedThisSession.add(id);
+      car.views += 1;
+      sb.rpc("increment_views", { bike_id: id }).then(() => {});
+    }
+    $("modalVehicleBadge").textContent = `${car.status} • ${car.owners}`;
+    $("modalInspectionBadge").textContent = `150-Pt Score: ${car.inspectionScore}%`;
+    $("modalVehicleTitle").textContent = `${car.make} ${car.model} ${car.variant}`;
+    setModalImage(car.images[0] || PLACEHOLDER);
+    $("modalThumbs").innerHTML = car.images.length > 1 ? car.images.map((u, i) =>
+      `<img src="${esc(thumbUrl(u))}" data-full="${esc(u)}" data-action="modal-photo" data-url="${esc(u)}" alt="Photo ${i + 1}" class="w-20 h-16 rounded-lg object-cover border-2 ${i === 0 ? "border-amber-500" : "border-transparent"} cursor-pointer shrink-0" />`).join("") : "";
+    $("modalVehiclePrice").textContent = formatPrice(car.price);
+    $("modalVehicleDescription").textContent = car.description || "Certified pre-owned bike at BIKE SHOP.";
+    $("modalViewsCount").textContent = car.views;
+    updateModalWishlistState(id);
+    const specs = [["Kilometers", Number(car.mileage).toLocaleString("en-IN") + " km"], ["Fuel Type", car.fuel], ["Gearbox", car.transmission], ["Bike Type", car.bodyType], ["Ownership", car.owners], ["RTO Reg", car.rto], ["Color", car.color], ["Insurance", car.insurance]];
+    $("modalSpecsGrid").innerHTML = specs.map(s => `<div class="bg-slate-50 p-2.5 rounded-xl border border-slate-200"><div class="text-[11px] text-slate-400 font-medium">${s[0]}</div><div class="text-xs font-bold mt-0.5">${esc(s[1])}</div></div>`).join("");
+    $("modalFeaturesList").innerHTML = car.features.map(f => `<span class="text-xs bg-amber-50 text-amber-900 border border-amber-200 px-3 py-1 rounded-full font-semibold">✓ ${esc(f)}</span>`).join("");
+    if (currentUser) {
+      $("leadCustomerName").value = (profile && profile.name) || "";
+      $("leadCustomerPhone").value = (profile && profile.phone) || "";
+    }
+    updateEmi();
+    $("vehicleDetailModal").classList.remove("hidden");
+    renderAll();
+  }
+  function setModalImage(url) { const el = $("modalVehicleImg"); delete el.dataset.fb; el.dataset.full = url; el.src = url; }
+
+  function updateEmi() {
+    const car = bikes.find(v => v.id === activeDetailVehicleId);
+    if (!car) return;
+    const downPct = Number($("emiDownPayment").value || 25), tenure = Number($("emiTenure").value || 36), rate = Number($("emiInterest").value || 11);
+    const down = Math.round(car.price * downPct / 100), loan = Math.max(0, car.price - down);
+    const emi = calcEmi(loan, rate, tenure);
+    $("emiDownPaymentLabel").textContent = `${formatExact(down)} (${downPct}%)`;
+    $("emiMonthlyResult").textContent = formatExact(emi) + " / mo";
+    $("modalQuickEmi").textContent = formatExact(emi) + " / mo";
+    $("emiLoanAmt").textContent = formatExact(loan);
+    $("emiTotalInterest").textContent = formatExact(Math.max(0, emi * tenure - loan));
+  }
+
+  function openCompare() {
+    const cars = compareIds.map(id => bikes.find(v => v.id === id)).filter(Boolean);
+    if (!cars.length) return;
+    const rows = [
+      ["Asking Price", c => `<span class="font-extrabold text-base">${formatPrice(c.price)}</span>`],
+      ["Est. EMI (3 Yrs)", c => `<span class="text-emerald-600 font-bold">${formatExact(calcEmi(c.price * 0.75, 11, 36))}/mo</span>`],
+      ["Kilometers", c => Number(c.mileage).toLocaleString("en-IN") + " km"],
+      ["Fuel & Gearbox", c => esc(c.fuel + " • " + c.transmission)], ["Bike Type", c => esc(c.bodyType)],
+      ["150-Pt Score", c => esc(c.inspectionScore) + "% Certified"], ["Ownership & RTO", c => esc(c.owners + " (" + c.rto + ")")],
+      ["Color", c => esc(c.color)], ["Insurance", c => esc(c.insurance)], ["Top Features", c => esc(c.features.join(", "))]
+    ];
+    $("compareModalBody").innerHTML = `<table class="w-full text-left border-collapse min-w-[600px]"><thead><tr class="border-b border-slate-200"><th class="p-3 w-40 text-xs font-bold uppercase text-slate-400">Specification</th>
+      ${cars.map(c => `<th class="p-3"><img src="${esc(coverThumb(c))}" data-full="${esc(coverFull(c))}" alt="" class="w-full h-32 object-cover rounded-xl border border-slate-200 mb-2" /><div class="text-sm font-extrabold">${esc(c.make)} ${esc(c.model)}</div><div class="text-xs text-slate-500 font-medium">${esc(c.variant)}</div></th>`).join("")}</tr></thead>
+      <tbody class="divide-y divide-slate-200 text-xs sm:text-sm">${rows.map(r => `<tr><td class="p-3 font-semibold text-slate-600 bg-slate-50">${r[0]}</td>${cars.map(c => `<td class="p-3 text-slate-800">${r[1](c)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+    $("compareModal").classList.remove("hidden");
+  }
+
+  // ===================== CUSTOMER AUTH =====================
+  function openCustomerAuth(mode = "login") { setAuthTab(mode); $("customerAuthModal").classList.remove("hidden"); }
+  function authError(msg) { const b = $("customerAuthErrorBox"); b.textContent = msg; b.classList.remove("hidden"); }
+  function setAuthTab(mode) {
+    $("customerAuthErrorBox").classList.add("hidden");
+    $("customerLoginForm").classList.toggle("hidden", mode !== "login");
+    $("customerRegisterForm").classList.toggle("hidden", mode === "login");
+    $("authTabLoginBtn").className = "py-2 rounded-lg text-xs transition " + (mode === "login" ? "font-bold bg-white text-slate-900 shadow-sm" : "font-semibold text-slate-600 hover:text-slate-900");
+    $("authTabRegisterBtn").className = "py-2 rounded-lg text-xs transition " + (mode !== "login" ? "font-bold bg-white text-slate-900 shadow-sm" : "font-semibold text-slate-600 hover:text-slate-900");
+  }
+  async function afterCustomerAuth(msg) {
+    await refreshSession();
+    await loadBikes();
+    $("customerAuthModal").classList.add("hidden");
+    renderAll();
+    showToast(msg, "👤");
+  }
+
+  // ===================== ADMIN AUTH =====================
+  function adminError(msg) { const b = $("adminPinErrorBox"); b.textContent = msg; b.classList.remove("hidden"); }
+  function openAdminModal() {
+    if (isAdminUnlocked) { switchView("admin"); return; }
+    $("adminPinErrorBox").classList.add("hidden");
+    $("adminPinInput").value = "";
+    if (currentUser && currentUser.email && !$("adminEmailInput").value) $("adminEmailInput").value = currentUser.email;
+    $("adminPinModal").classList.remove("hidden");
+    setTimeout(() => ($("adminEmailInput").value ? $("adminPinInput") : $("adminEmailInput")).focus(), 60);
+  }
+  function closeAdminModal() { $("adminPinModal").classList.add("hidden"); $("adminPinInput").value = ""; }
+
+  async function handleAdminLogin() {
+    const email = $("adminEmailInput").value.trim(), password = $("adminPinInput").value;
+    if (!email || !password) { adminError("Enter the owner email and password."); return; }
+    const btn = $("adminPinSubmitBtn"); btn.disabled = true; btn.textContent = "Checking…";
+    try {
+      const { data, error } = await sb.auth.signInWithPassword({ email, password });
+      if (error) { adminError(error.message.includes("Invalid") ? "Incorrect email or password." : error.message); return; }
+      const { data: row } = await sb.from("admins").select("user_id").eq("user_id", data.user.id).maybeSingle();
+      if (!row) { await sb.auth.signOut(); await refreshSession(); renderAll(); adminError("This account is not an owner account."); return; }
+      $("adminPinInput").value = "";
+      await refreshSession();
+      await loadBikes();
+      await loadAdminData();
+      isAdminUnlocked = true;
+      closeAdminModal();
+      $("adminActiveBanner").classList.remove("hidden");
+      startIdleWatch();
+      switchView("admin");
+      switchAdminSubTab("insights");
+      showToast("Admin panel unlocked", "⚡");
+    } finally { btn.disabled = false; btn.textContent = "Unlock"; }
+  }
+
+  function startIdleWatch() {
+    lastAdminActivity = Date.now();
+    clearInterval(adminIdleTimer);
+    adminIdleTimer = setInterval(() => {
+      if (isAdminUnlocked && Date.now() - lastAdminActivity > ADMIN_IDLE_MS) lockAdmin("Admin auto-locked after 10 minutes of inactivity");
+    }, 3000);
+  }
+
+  async function lockAdmin(message) {
+    isAdminUnlocked = false;
+    clearInterval(adminIdleTimer);
+    costs = {}; customers = []; allWishlists = []; leads = [];
+    $("adminActiveBanner").classList.add("hidden");
+    $("navAdminPanelBtn").classList.add("hidden");
+    ["dealerTableBody", "adminCustomersListContainer", "leadsListContainer", "insightDemandLeaderboard", "adminSmartRecommendations"].forEach(id => { $(id).textContent = ""; });
+    await sb.auth.signOut();
+    await refreshSession();
+    switchView("showroom");
+    showToast(typeof message === "string" ? message : "Admin locked — signed out", "🔒");
+  }
+
+  ["pointerdown", "keydown", "touchstart"].forEach(evt => document.addEventListener(evt, () => { if (isAdminUnlocked) lastAdminActivity = Date.now(); }, { passive: true }));
+  document.addEventListener("visibilitychange", () => {
+    if (!isAdminUnlocked) return;
+    if (document.hidden) adminHiddenAt = Date.now();
+    else if (adminHiddenAt && Date.now() - adminHiddenAt > ADMIN_BACKGROUND_MS) lockAdmin("Admin locked after the page was in the background");
+  });
+
+  async function handleChangePassword() {
+    const box = $("changePinErrorBox"), err = (m) => { box.textContent = m; box.classList.remove("hidden"); };
+    box.classList.add("hidden");
+    const nw = $("changePinNew").value, cf = $("changePinConfirm").value;
+    if (nw.length < 8) return err("New password must be at least 8 characters.");
+    if (nw !== cf) return err("New password and confirmation do not match.");
+    const { error } = await sb.auth.updateUser({ password: nw });
+    if (error) return err(error.message);
+    $("changePinForm").reset();
+    showToast("Owner password changed", "🔐");
+  }
+
+  // ===================== PHOTOS =====================
+  async function loadBitmap(file) {
+    if (window.createImageBitmap) {
+      try { return await createImageBitmap(file, { imageOrientation: "from-image" }); } catch (e) {}
+    }
+    return await new Promise((resolve, reject) => {
+      const img = new Image(), url = URL.createObjectURL(file);
+      img.onload = () => { URL.revokeObjectURL(url); resolve(img); };
+      img.onerror = () => { URL.revokeObjectURL(url); reject(new Error("Could not read image")); };
+      img.src = url;
+    });
+  }
+  const toBlob = (canvas, type, q) => new Promise(res => canvas.toBlob(res, type, q));
+
+  async function compressImage(file, maxDim, quality) {
+    const bmp = await loadBitmap(file);
+    const w0 = bmp.width, h0 = bmp.height, scale = Math.min(1, maxDim / Math.max(w0, h0));
+    const canvas = document.createElement("canvas");
+    canvas.width = Math.max(1, Math.round(w0 * scale)); canvas.height = Math.max(1, Math.round(h0 * scale));
+    canvas.getContext("2d").drawImage(bmp, 0, 0, canvas.width, canvas.height);
+    let type = "image/webp", blob = await toBlob(canvas, type, quality);
+    if (!blob || blob.type !== "image/webp") { type = "image/jpeg"; blob = await toBlob(canvas, type, quality); }
+    let q = quality;
+    while (blob && blob.size > 900 * 1024 && q > 0.4) { q -= 0.1; blob = await toBlob(canvas, type, q); }
+    if (!blob) throw new Error("Image compression failed");
+    return blob;
+  }
+
+  async function uploadPhoto(bikeId, file) {
+    const [full, thumb] = [await compressImage(file, FULL_MAX_DIM, FULL_QUALITY), await compressImage(file, THUMB_MAX_DIM, THUMB_QUALITY)];
+    const ext = full.type === "image/webp" ? "webp" : "jpg";
+    const base = `${bikeId}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
+    const fullPath = `${base}.${ext}`, thumbPath = `${base}_t.${ext}`;
+    const up1 = await sb.storage.from(BUCKET).upload(fullPath, full, { contentType: full.type, cacheControl: "31536000" });
+    if (up1.error) throw up1.error;
+    const up2 = await sb.storage.from(BUCKET).upload(thumbPath, thumb, { contentType: thumb.type, cacheControl: "31536000" });
+    if (up2.error) { await sb.storage.from(BUCKET).remove([fullPath]); throw up2.error; }
+    return sb.storage.from(BUCKET).getPublicUrl(fullPath).data.publicUrl;
+  }
+
+  async function removePhotos(urls) {
+    const paths = [];
+    (urls || []).forEach(u => { const p = pathFromUrl(u); if (p) { paths.push(p); paths.push(p.replace(/(\.\w+)$/, "_t$1")); } });
+    if (paths.length) await sb.storage.from(BUCKET).remove(paths);
+  }
+
+  function renderPhotoGrid() {
+    $("photoGrid").innerHTML = formPhotos.length ? formPhotos.map((p, i) => `
+      <div class="relative aspect-[4/3] rounded-lg overflow-hidden border ${i === 0 ? "border-amber-500 border-2" : "border-slate-300"} bg-slate-200">
+        <img src="${esc(p.url ? thumbUrl(p.url) : p.preview)}" ${p.url ? `data-full="${esc(p.url)}"` : ""} alt="" class="w-full h-full object-cover" />
+        ${i === 0 ? `<span class="absolute bottom-1 left-1 bg-amber-500 text-slate-950 text-[9px] font-extrabold px-1.5 py-0.5 rounded">COVER</span>` : `<button type="button" data-photo-action="cover" data-index="${i}" title="Make cover" class="absolute bottom-1 left-1 bg-slate-900/80 text-amber-300 text-[11px] font-bold px-1.5 py-0.5 rounded">★</button>`}
+        <button type="button" data-photo-action="remove" data-index="${i}" title="Remove" class="absolute top-1 right-1 bg-rose-600 text-white text-[11px] font-bold w-5 h-5 rounded-full leading-none">✕</button>
+      </div>`).join("") : `<div class="col-span-3 aspect-[3/1] rounded-lg border-2 border-dashed border-slate-300 flex items-center justify-center text-xs text-slate-500">No photos yet</div>`;
+  }
+
+  function addFormPhotos(fileList) {
+    const files = Array.from(fileList || []).filter(f => f.type.startsWith("image/"));
+    const room = MAX_PHOTOS - formPhotos.length;
+    if (files.length > room) showToast(`Maximum ${MAX_PHOTOS} photos per bike`, "⚠️");
+    files.slice(0, Math.max(0, room)).forEach(f => formPhotos.push({ file: f, preview: URL.createObjectURL(f) }));
+    renderPhotoGrid();
+  }
+
+  // ===================== ADMIN FORM =====================
+  function updateFormProfit() {
+    const asking = Number($("inputPrice").value || 0);
+    const cost = Number($("inputCostPrice").value || (asking > 0 ? Math.round(asking * 0.88) : 0));
+    const total = cost + Number($("inputRefurbCost").value || 0), profit = asking - total;
+    $("formLiveTotalCost").textContent = formatPrice(total);
+    const el = $("formLiveNetProfit");
+    el.textContent = `${formatPrice(profit)} (${asking > 0 ? ((profit / asking) * 100).toFixed(1) : "0.0"}%)`;
+    el.className = "font-extrabold " + (profit >= 0 ? "text-emerald-600" : "text-rose-600");
+  }
+
+  function prepareForm(car) {
+    $("formErrorBox").classList.add("hidden");
+    formPhotos.forEach(p => p.preview && URL.revokeObjectURL(p.preview));
+    if (car) {
+      const c = costs[car.id] || { cost: Math.round(car.price * 0.88), refurb: 3000 };
+      $("editVehicleId").value = car.id;
+      $("formModeBadge").textContent = "Edit Existing Bike";
+      $("formHeaderTitle").textContent = `Edit ${car.make} ${car.model}`;
+      $("submitVehicleBtn").textContent = "Save Changes";
+      const set = (id, v) => { $(id).value = v; };
+      set("inputMake", car.make); set("inputModel", car.model); set("inputVariant", car.variant); set("inputYear", car.year);
+      set("inputPrice", car.price); set("inputCostPrice", c.cost); set("inputRefurbCost", c.refurb); set("inputMileage", car.mileage);
+      set("inputInspectionScore", car.inspectionScore); set("inputBodyType", car.bodyType); set("inputFuel", car.fuel);
+      set("inputTransmission", car.transmission); set("inputOwners", car.owners); set("inputColor", car.color); set("inputRto", car.rto);
+      set("inputInsurance", car.insurance); set("inputFeatures", car.features.join(", ")); set("inputDescription", car.description); set("inputStatus", car.status);
+      formPhotos = car.images.map(url => ({ url }));
+    } else {
+      $("vehicleForm").reset();
+      $("editVehicleId").value = "";
+      $("formModeBadge").textContent = "Listing Studio";
+      $("formHeaderTitle").textContent = "Add a New Bike to Showroom";
+      $("submitVehicleBtn").textContent = "+ Publish Bike to BIKE SHOP";
+      formPhotos = [];
+    }
+    renderPhotoGrid();
+    updateFormProfit();
+  }
+
+  async function submitVehicleForm() {
+    const errBox = $("formErrorBox"), fail = (m) => { errBox.textContent = m; errBox.classList.remove("hidden"); };
+    errBox.classList.add("hidden");
+    const make = $("inputMake").value.trim(), model = $("inputModel").value.trim();
+    const year = Number($("inputYear").value), price = Number($("inputPrice").value);
+    if (!make || !model) return fail("Please enter the bike Brand and Model.");
+    if (!year || year < 2000 || year > 2030) return fail("Please enter a valid Registration Year.");
+    if (!price || price < 10000) return fail("Please enter a valid Asking Price (minimum ₹10,000).");
+    if (!formPhotos.length && !confirm("This bike has no photos. Publish anyway?")) return;
+
+    const btn = $("submitVehicleBtn"), oldLabel = btn.textContent;
+    btn.disabled = true;
+    const editId = $("editVehicleId").value, id = editId || crypto.randomUUID();
+    const existing = editId ? bikes.find(v => v.id === editId) : null;
+    const uploaded = [];
+    try {
+      const finalImages = [];
+      let n = 0; const total = formPhotos.filter(p => p.file).length;
+      for (const p of formPhotos) {
+        if (p.url) { finalImages.push(p.url); continue; }
+        n++; btn.textContent = `Uploading photo ${n} of ${total}…`;
+        const url = await uploadPhoto(id, p.file); uploaded.push(url); finalImages.push(url);
+      }
+      btn.textContent = "Saving…";
+      const row = {
+        make, model, variant: $("inputVariant").value.trim(), year, price,
+        mileage: Number($("inputMileage").value) || 0,
+        fuel: $("inputFuel").value, transmission: $("inputTransmission").value, body_type: $("inputBodyType").value,
+        owners: $("inputOwners").value, color: $("inputColor").value.trim(), rto: $("inputRto").value.trim(), insurance: $("inputInsurance").value,
+        inspection_score: Number($("inputInspectionScore").value) || 95, status: $("inputStatus").value,
+        features: $("inputFeatures").value.split(",").map(s => s.trim()).filter(Boolean),
+        description: $("inputDescription").value.trim(), images: finalImages
+      };
+      const res = editId ? await sb.from("bikes").update(row).eq("id", id) : await sb.from("bikes").insert({ id, ...row });
+      if (res.error) throw res.error;
+      const costRes = await sb.from("bike_costs").upsert({ bike_id: id, cost_price: Number($("inputCostPrice").value) || Math.round(price * 0.88), refurb_cost: Number($("inputRefurbCost").value) || 0 });
+      if (costRes.error) throw costRes.error;
+      if (existing) await removePhotos(existing.images.filter(u => !finalImages.includes(u)));
+      await loadBikes(); await loadAdminData();
+      showToast(editId ? `Updated ${year} ${make} ${model}` : `Added ${year} ${make} ${model} to BIKE SHOP!`);
+      prepareForm(null);
+      switchAdminSubTab("inventory");
+      renderAll();
+    } catch (e) {
+      await removePhotos(uploaded).catch(() => {});
+      fail("Could not save: " + (e && e.message ? e.message : e));
+    } finally { btn.disabled = false; if (btn.textContent.includes("…")) btn.textContent = oldLabel; }
+  }
+
+  async function exportCsv() {
+    const q = (s) => `"${String(s == null ? "" : s).replace(/"/g, '""')}"`;
+    const head = ["ID", "Make", "Model", "Variant", "Year", "AskingPrice_INR", "PurchaseCost_INR", "RefurbCost_INR", "Mileage_KM", "Fuel", "Transmission", "BodyType", "RTO", "Views", "Wishlists", "Status", "DaysInStock"];
+    const rows = bikes.map(v => { const c = costs[v.id] || { cost: Math.round(v.price * 0.88), refurb: 3000 };
+      return [v.id, q(v.make), q(v.model), q(v.variant), v.year, v.price, c.cost, c.refurb, v.mileage, v.fuel, v.transmission, v.bodyType, q(v.rto), v.views, v.wishlistCount, v.status, v.daysInStock].join(","); });
+    const blob = new Blob([[head.join(","), ...rows].join("\n")], { type: "text/csv;charset=utf-8;" });
+    const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "bike_shop_inventory.csv";
+    document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(a.href);
+    showToast("Inventory CSV exported!");
+  }
+
+  // ===================== INIT =====================
+  window.addEventListener("DOMContentLoaded", async () => {
+    loadGuestWishlist();
+    const tomorrow = new Date(Date.now() + 864e5); const iso = (d) => d.toISOString().slice(0, 10);
+    $("leadPreferredDate").min = iso(new Date()); $("leadPreferredDate").value = iso(tomorrow);
+    $("maxPhotosLabel").textContent = MAX_PHOTOS;
+    renderPhotoGrid();
+
+    // Logo: 1 tap = showroom, 3 quick taps = owner login
+    $("brandLogoBtn").addEventListener("click", () => {
+      logoClickCount++; clearTimeout(logoClickTimer);
+      if (logoClickCount >= 3) { logoClickCount = 0; openAdminModal(); return; }
+      logoClickTimer = setTimeout(() => { logoClickCount = 0; }, 900);
+      if (activeView !== "showroom") switchView("showroom");
+    });
+
+    $("navShowroomBtn").addEventListener("click", () => switchView("showroom"));
+    $("navWishlistBtn").addEventListener("click", () => switchView("wishlist"));
+    $("navAdminPanelBtn").addEventListener("click", () => switchView("admin"));
+    $("heroBrowseAllBtn").addEventListener("click", () => $("vehiclesGrid").scrollIntoView({ behavior: "smooth" }));
+    $("heroOpenWishlistBtn").addEventListener("click", () => switchView("wishlist"));
+    $("heroCustomerLoginPromptBtn").addEventListener("click", () => currentUser ? switchView("wishlist") : openCustomerAuth("login"));
+    $("wishlistSignInPromptBtn").addEventListener("click", () => openCustomerAuth("login"));
+    $("backToShowroomFromSavedBtn").addEventListener("click", () => switchView("showroom"));
+    $("emptyWishlistBrowseBtn").addEventListener("click", () => switchView("showroom"));
+    $("footerShowroomLink").addEventListener("click", () => switchView("showroom"));
+    $("footerWishlistLink").addEventListener("click", () => switchView("wishlist"));
+    $("footerCustomerAuthLink").addEventListener("click", () => openCustomerAuth("login"));
+
+    // admin nav
+    $("bannerQuickAddCarBtn").addEventListener("click", () => { prepareForm(null); switchView("admin"); switchAdminSubTab("add"); });
+    $("bannerOpenInsightsBtn").addEventListener("click", () => { switchView("admin"); switchAdminSubTab("insights"); });
+    $("lockAdminPanelBtn").addEventListener("click", () => lockAdmin());
+    $("adminLogoutBtn").addEventListener("click", () => lockAdmin());
+    $("lockNowBtn").addEventListener("click", () => lockAdmin());
+    $("adminBackToShowroomBtn").addEventListener("click", () => switchView("showroom"));
+    document.querySelectorAll(".admin-subtab-btn").forEach(b => b.addEventListener("click", () => { if (b.dataset.adminTab === "add") prepareForm(null); switchAdminSubTab(b.dataset.adminTab); }));
+    $("insightQuickAddBtn").addEventListener("click", () => { prepareForm(null); switchAdminSubTab("add"); });
+    $("dealerAddCarBtn").addEventListener("click", () => { prepareForm(null); switchAdminSubTab("add"); });
+    $("cancelFormToInsightsBtn").addEventListener("click", () => switchAdminSubTab("insights"));
+    $("closeAdminPinModalBtn").addEventListener("click", closeAdminModal);
+    $("adminPinForm").addEventListener("submit", (e) => { e.preventDefault(); handleAdminLogin(); });
+    $("changePinForm").addEventListener("submit", (e) => { e.preventDefault(); handleChangePassword(); });
+
+    // customer auth
+    $("openCustomerAuthBtn").addEventListener("click", () => openCustomerAuth("login"));
+    $("closeCustomerAuthModalBtn").addEventListener("click", () => $("customerAuthModal").classList.add("hidden"));
+    $("authTabLoginBtn").addEventListener("click", () => setAuthTab("login"));
+    $("authTabRegisterBtn").addEventListener("click", () => setAuthTab("register"));
+
+    $("customerLoginForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = $("loginIdentifier").value.trim(), password = $("loginPassword").value;
+      if (!email || !password) return authError("Please enter your email and password.");
+      const btn = $("customerLoginBtn"); btn.disabled = true;
+      const { error } = await sb.auth.signInWithPassword({ email, password });
+      btn.disabled = false;
+      if (error) return authError(error.message.includes("Invalid") ? "Incorrect email or password." : error.message);
+      $("loginPassword").value = "";
+      await afterCustomerAuth("Welcome back!");
+    });
+
+    $("customerRegisterForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = $("regFullName").value.trim(), phone = $("regPhone").value.trim(), city = $("regCity").value.trim() || "Kolhapur";
+      const email = $("regEmail").value.trim(), password = $("regPassword").value;
+      if (!name || !phone || !email || !password) return authError("Please fill in all required fields.");
+      if (password.length < 6) return authError("Password must be at least 6 characters.");
+      const btn = $("customerRegisterBtn"); btn.disabled = true;
+      const { data, error } = await sb.auth.signUp({ email, password, options: { data: { name, phone, city } } });
+      btn.disabled = false;
+      if (error) return authError(error.message);
+      $("customerRegisterForm").reset(); $("regCity").value = "Kolhapur";
+      if (!data.session) { setAuthTab("login"); showToast("Account created! Check your email to confirm, then sign in.", "✉️"); return; }
+      await afterCustomerAuth(`Account created for ${name}! Welcome to BIKE SHOP.`);
+    });
+
+    $("customerLogoutBtn").addEventListener("click", async () => {
+      await sb.auth.signOut(); await refreshSession(); renderAll(); showToast("Signed out.");
+    });
+
+    $("currencySelect").addEventListener("change", (e) => { currentCurrency = e.target.value; renderAll(); if (!$("vehicleDetailModal").classList.contains("hidden")) updateEmi(); });
+
+    // filters
+    ["filterSearch", "filterBody", "filterFuel", "filterTransmission", "filterSort", "filterMaxPrice", "filterHideSold"].forEach(id => {
+      $(id).addEventListener("input", renderShowroom); $(id).addEventListener("change", renderShowroom);
+    });
+    const resetFilters = () => {
+      $("filterSearch").value = ""; $("filterBody").value = "ALL"; $("filterFuel").value = "ALL"; $("filterTransmission").value = "ALL";
+      $("filterSort").value = "newest_added"; $("filterMaxPrice").value = "1500000"; $("filterHideSold").checked = false; renderShowroom();
+    };
+    $("clearFiltersBtn").addEventListener("click", resetFilters);
+    $("emptyResetBtn").addEventListener("click", resetFilters);
+
+    // cards
+    function cardAction(e) {
+      const btn = e.target.closest("[data-action]"); if (!btn) return;
+      const a = btn.dataset.action, id = btn.dataset.id;
+      if (a === "open-detail") openDetail(id);
+      else if (a === "toggle-wishlist") { e.stopPropagation(); toggleWishlist(id); }
+      else if (a === "toggle-compare") {
+        e.stopPropagation();
+        if (compareIds.includes(id)) compareIds = compareIds.filter(x => x !== id);
+        else { if (compareIds.length >= 3) return showToast("You can compare up to 3 bikes at once", "⚠️"); compareIds.push(id); }
+        renderAll();
+      }
+    }
+    $("vehiclesGrid").addEventListener("click", cardAction);
+    $("savedVehiclesGrid").addEventListener("click", cardAction);
+
+    $("modalWishlistToggleBtn").addEventListener("click", () => { if (activeDetailVehicleId) toggleWishlist(activeDetailVehicleId); });
+    $("modalThumbs").addEventListener("click", (e) => {
+      const t = e.target.closest("[data-action='modal-photo']"); if (!t) return;
+      setModalImage(t.dataset.url);
+      $("modalThumbs").querySelectorAll("img").forEach(i => { i.classList.toggle("border-amber-500", i === t); i.classList.toggle("border-transparent", i !== t); });
+    });
+    $("comparePillsContainer").addEventListener("click", (e) => { const b = e.target.closest("[data-action='remove-compare']"); if (b) { compareIds = compareIds.filter(x => x !== b.dataset.id); renderAll(); } });
+    $("clearCompareBtn").addEventListener("click", () => { compareIds = []; renderAll(); });
+    $("openCompareModalBtn").addEventListener("click", openCompare);
+    $("closeCompareModalBtn").addEventListener("click", () => $("compareModal").classList.add("hidden"));
+    $("closeDetailModalBtn").addEventListener("click", () => $("vehicleDetailModal").classList.add("hidden"));
+    ["emiDownPayment", "emiTenure", "emiInterest"].forEach(id => { $(id).addEventListener("input", updateEmi); $(id).addEventListener("change", updateEmi); });
+
+    // admin: leaderboard edit
+    $("insightDemandLeaderboard").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-action='admin-edit-car']"); if (!b) return;
+      const car = bikes.find(v => v.id === b.dataset.id); if (car) { prepareForm(car); switchAdminSubTab("add"); }
+    });
+
+    // admin: stock table
+    $("dealerTableBody").addEventListener("click", async (e) => {
+      const btn = e.target.closest("button[data-action]"); if (!btn) return;
+      const a = btn.dataset.action, id = btn.dataset.id, car = bikes.find(v => v.id === id);
+      if (a === "open-detail") openDetail(id);
+      else if (a === "edit-vehicle" && car) { prepareForm(car); switchAdminSubTab("add"); }
+      else if (a === "delete-vehicle" && car) {
+        if (!confirm(`Delete ${car.make} ${car.model}? Its photos will be deleted too. This cannot be undone.`)) return;
+        const { error } = await sb.from("bikes").delete().eq("id", id);
+        if (error) return showToast("Delete failed: " + error.message, "⚠️");
+        await removePhotos(car.images).catch(() => {});
+        compareIds = compareIds.filter(x => x !== id);
+        await loadBikes(); await loadAdminData(); renderAll(); showToast("Bike removed from stock");
+      } else if (a === "save-inline-price" && car) {
+        const input = document.querySelector(`input[data-action='inline-price-input'][data-id='${CSS.escape(id)}']`);
+        const p = input ? Number(input.value) : 0;
+        if (!(p >= 10000)) return showToast("Please enter a valid price (min ₹10,000)", "⚠️");
+        const { error } = await sb.from("bikes").update({ price: p }).eq("id", id);
+        if (error) return showToast("Update failed: " + error.message, "⚠️");
+        car.price = p; renderAll(); showToast(`Asking price for ${car.make} ${car.model} set to ${formatPrice(p)}`);
+      }
+    });
+    $("dealerTableBody").addEventListener("change", async (e) => {
+      const sel = e.target.closest("select[data-action='change-status']"); if (!sel) return;
+      const car = bikes.find(v => v.id === sel.dataset.id); if (!car) return;
+      const { error } = await sb.from("bikes").update({ status: sel.value }).eq("id", car.id);
+      if (error) { showToast("Update failed: " + error.message, "⚠️"); sel.value = car.status; return; }
+      car.status = sel.value; renderAll(); showToast(`Status updated to ${car.status}`);
+    });
+    $("leadsListContainer").addEventListener("change", async (e) => {
+      const sel = e.target.closest("select[data-action='change-lead-status']"); if (!sel) return;
+      const lead = leads.find(l => l.id === sel.dataset.id); if (!lead) return;
+      const { error } = await sb.from("leads").update({ status: sel.value }).eq("id", lead.id);
+      if (error) { showToast("Update failed: " + error.message, "⚠️"); sel.value = lead.status; return; }
+      lead.status = sel.value; showToast(`Lead status: ${lead.status}`);
+    });
+    $("exportCsvBtn").addEventListener("click", exportCsv);
+
+    // admin: form
+    ["inputPrice", "inputCostPrice", "inputRefurbCost"].forEach(id => $(id).addEventListener("input", updateFormProfit));
+    $("inputPhotoUpload").addEventListener("change", (e) => { addFormPhotos(e.target.files); e.target.value = ""; });
+    $("photoGrid").addEventListener("click", (e) => {
+      const b = e.target.closest("[data-photo-action]"); if (!b) return;
+      const i = Number(b.dataset.index);
+      if (b.dataset.photoAction === "remove") { const [p] = formPhotos.splice(i, 1); if (p && p.preview) URL.revokeObjectURL(p.preview); }
+      else if (b.dataset.photoAction === "cover") { const [p] = formPhotos.splice(i, 1); formPhotos.unshift(p); }
+      renderPhotoGrid();
+    });
+    $("resetFormBtn").addEventListener("click", () => { prepareForm(null); showToast("Form reset"); });
+    $("vehicleForm").addEventListener("submit", (e) => { e.preventDefault(); submitVehicleForm(); });
+
+    // lead form
+    $("leadBookingForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const car = bikes.find(v => v.id === activeDetailVehicleId);
+      const name = $("leadCustomerName").value.trim(), phone = $("leadCustomerPhone").value.trim();
+      if (!name || phone.length < 5) return showToast("Please enter your name and a valid phone number", "⚠️");
+      const btn = $("leadSubmitBtn"); btn.disabled = true;
+      const { error } = await sb.from("leads").insert({
+        bike_id: car ? car.id : null,
+        bike_title: car ? `${car.make} ${car.model} ${car.variant}`.trim() : "Showroom Bike",
+        customer_name: name, customer_phone: phone,
+        preferred_date: $("leadPreferredDate").value || null,
+        note: $("leadOfferNote").value.trim() || "Requested showroom test ride and inspection."
+      });
+      btn.disabled = false;
+      if (error) return showToast("Could not send inquiry: " + error.message, "⚠️");
+      $("leadOfferNote").value = "";
+      $("vehicleDetailModal").classList.add("hidden");
+      showToast(`Inquiry sent to BIKE SHOP, ${name}! We'll call you soon.`);
+    });
+
+    ["vehicleDetailModal", "compareModal", "customerAuthModal", "adminPinModal"].forEach(mid => $(mid).addEventListener("click", (e) => { if (e.target.id === mid) $(mid).classList.add("hidden"); }));
+
+    // first paint, then data
+    renderAll();
+    bikesReady = loadBikes().then(() => renderAll());
+    await Promise.all([bikesReady, refreshSession()]);
+    renderAll();
+  });
+})();
+</script>
+</body>
+</html>
